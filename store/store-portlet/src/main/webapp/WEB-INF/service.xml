@@ -1,38 +1,57 @@
-<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+mvn<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
 
-<service-builder package-path="ru.hmel">
+<entity package-path="ru.hmel">
 	<namespace>store</namespace>
-	<entity name="Foo" uuid="true" local-service="true" remote-service="true">
-
+	<entity name="Employees" uuid="true" local-service="true" remote-service="true">
 		<!-- PK fields -->
+		<column name="employee_id" type="bigint" primary="true" />
+		<column name="lastname" type="character varying(100)" />
+		<column name="firstname" type="character varying(100)" />
+		<column name="patronymic" type="character varying(100)" />
+		<column name="birthdate" type="timestamp" />
+		<column name="position" type="bigint" />
+		<column name="gender" type="boolean" />
+	</entity>
 
-		<column name="fooId" type="long" primary="true" />
+	<entity name="Electronics" uuid="true" local-service="true" remote-service="true">
+		<column name="electronics_id" type="bigint" primary="true" />
+		<column name="name" type="character varying(100)" />
+		<column name="etype" type="bigint" />
+		<column name="price" type="bigint" />
+		<column name="count" type="int" />
+		<column name="inStock" type="boolean" />
+		<column name="archive" type="boolean" />
+		<column name="description" type="character varying(100)" />
+	</entity>
 
-		<!-- Group instance -->
+	<entity name="Purchase" uuid="true" local-service="true" remote-service="true">
+		<column name="Purchase_id" type="bigint" primary="true"/>
+		<column name="electroid" type="bigint" />
+		<column name="employeeid" type="bigint" />
+		<column name="purchaseDate" type="timestamp with time zone" />
+		<column name="type" type="bigint" />
+	</entity>
 
-		<column name="groupId" type="long" />
+	<entity name="PositionType" uuid="true" local-service="true" remote-service="true" />
+		<column name="id" type="bigint" primary="true" />
+		<column name="name" type="character varying(100)" />
+	</entity>
 
-		<!-- Audit fields -->
+	<entity name="ElectroType" uuid="true" local-service="true" remote-service="true" >
+		<column name="id" type="bigint" primary="true" />
+		<column name="name" type="character varying(100)" />
+	</entity>
 
-		<column name="companyId" type="long" />
-		<column name="userId" type="long" />
-		<column name="userName" type="String" />
-		<column name="createDate" type="Date" />
-		<column name="modifiedDate" type="Date" />
+	<entity name="PurchaseType" uuid="true" local-service="true" remote-service="true" 	>
+		<column name="id" type="bigint" primary="true" />
+		<column name="name" type="character varying(100)" />
+	</entity>
 
-		<!-- Other fields -->
+	<entity name="ElectroEmployee" uuid="true" local-service="true" remote-service="true" >
+		<column name="employeeid" type="bigint" primary="true" />
+		<column name="etype" type="bigint" />
+	</entity>
 
-		<column name="field1" type="String" />
-		<column name="field2" type="boolean" />
-		<column name="field3" type="int" />
-		<column name="field4" type="Date" />
-		<column name="field5" type="String" />
-
-		<!-- Order -->
-
-		<order by="asc">
-			<order-column name="field1" />
-		</order>
 
 		<!-- Finder methods -->
 
@@ -40,6 +59,11 @@
 			<finder-column name="field2" />
 		</finder>
 
+		<!-- Order -->
+
+	<order by="asc">
+	<order-column name="field1" />
+	</order>
 		<!-- References -->
 
 		<reference package-path="com.liferay.portlet.asset" entity="AssetEntry" />
