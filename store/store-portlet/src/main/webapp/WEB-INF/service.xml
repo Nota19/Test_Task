@@ -2,7 +2,7 @@ mvn<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" 
 
 <entity package-path="ru.hmel">
 	<namespace>store</namespace>
-	<entity name="Employees" uuid="true" local-service="true" remote-service="true">
+	<entity name="Employee" uuid="true" local-service="true" remote-service="true">
 		<!-- PK fields -->
 		<column name="employee_id" type="bigint" primary="true" />
 		<column name="lastname" type="character varying(100)" />
@@ -54,15 +54,39 @@ mvn<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" 
 
 
 		<!-- Finder methods -->
+	<finder name="employeeid" return-type="Collection">
+		<finder-column name="employee_id" />
+	</finder>
 
-		<finder name="Field2" return-type="Collection">
-			<finder-column name="field2" />
-		</finder>
+	<finder name="electroid" return-type="Collection">
+		<finder-column name="electronics_id"/>
+	</finder>
+
+	<finder name="type" return-type="Collection">
+		<finder-column name="id"/>
+	</finder>
+
+	<finder name="employee_id" return-type="Collection">
+		<finder-column name="employeeid" />
+	</finder>
+
+	<finder name="position" return-type="Collection">
+		<finder-column name="id" />
+	</finder>
+
+	<finder name="id" return-type="Collection">
+		<finder-column name="etype" />
+	</finder>
+
+	<finder name="etype" return-type="Collection">
+		<finder-column name="id"/>
+	</finder>
+
 
 		<!-- Order -->
 
 	<order by="asc">
-	<order-column name="field1" />
+	<order-column name="purchaseDate" />
 	</order>
 		<!-- References -->
 
