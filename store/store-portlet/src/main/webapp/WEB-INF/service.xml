@@ -4,83 +4,86 @@ mvn<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" 
 	<namespace>store</namespace>
 	<entity name="Employee" uuid="true" local-service="true" remote-service="true">
 		<!-- PK fields -->
-		<column name="employee_id" type="bigint" primary="true" />
-		<column name="lastname" type="character varying(100)" />
-		<column name="firstname" type="character varying(100)" />
-		<column name="patronymic" type="character varying(100)" />
-		<column name="birthdate" type="timestamp" />
-		<column name="position" type="bigint" />
+		<column name="employee_id" type="long" primary="true" />
+		<column name="lastname" type="String" />
+		<column name="firstname" type="String" />
+		<column name="patronymic" type="String" />
+		<column name="birthdate" type="date" />
+		<column name="position" type="String" />
 		<column name="gender" type="boolean" />
+
+		<finder name="employee_id" return-type="Collection">
+			<finder-column name="employeeid" />
+		</finder>
+
+		<finder name="position" return-type="Collection">
+			<finder-column name="id" />
+		</finder>
+
+
 	</entity>
 
 	<entity name="Electronics" uuid="true" local-service="true" remote-service="true">
-		<column name="electronics_id" type="bigint" primary="true" />
-		<column name="name" type="character varying(100)" />
-		<column name="etype" type="bigint" />
-		<column name="price" type="bigint" />
-		<column name="count" type="int" />
+		<column name="electronics_id" type="long" primary="true" />
+		<column name="name" type="String" />
+		<column name="etype" type="String" />
+		<column name="price" type="long" />
+		<column name="count" type="long" />
 		<column name="inStock" type="boolean" />
 		<column name="archive" type="boolean" />
-		<column name="description" type="character varying(100)" />
+		<column name="description" type="String" />
+
+		<finder name="etype" return-type="Collection">
+			<finder-column name="id"/>
+		</finder>
+
 	</entity>
 
 	<entity name="Purchase" uuid="true" local-service="true" remote-service="true">
-		<column name="Purchase_id" type="bigint" primary="true"/>
-		<column name="electroid" type="bigint" />
-		<column name="employeeid" type="bigint" />
-		<column name="purchaseDate" type="timestamp with time zone" />
-		<column name="type" type="bigint" />
+		<column name="Purchase_id" type="long" primary="true"/>
+		<column name="electroid" type="long" />
+		<column name="employeeid" type="long" />
+		<column name="purchaseDate" type="dateTime" />
+		<column name="type" type="long" />
+
+		<finder name="employeeid" return-type="Collection">
+			<finder-column name="employee_id" />
+		</finder>
+
+		<finder name="electroid" return-type="Collection">
+			<finder-column name="electronics_id"/>
+		</finder>
+
+		<finder name="type" return-type="Collection">
+			<finder-column name="id"/>
+		</finder>
+
 	</entity>
 
 	<entity name="PositionType" uuid="true" local-service="true" remote-service="true" />
-		<column name="id" type="bigint" primary="true" />
-		<column name="name" type="character varying(100)" />
+		<column name="id" type="long" primary="true" />
+		<column name="name" type="String" />
 	</entity>
 
 	<entity name="ElectroType" uuid="true" local-service="true" remote-service="true" >
-		<column name="id" type="bigint" primary="true" />
-		<column name="name" type="character varying(100)" />
+		<column name="id" type="long" primary="true" />
+		<column name="name" type="String" />
+
+		<finder name="id" return-type="Collection">
+			<finder-column name="etype" />
+		</finder>
+
 	</entity>
 
 	<entity name="PurchaseType" uuid="true" local-service="true" remote-service="true" 	>
-		<column name="id" type="bigint" primary="true" />
-		<column name="name" type="character varying(100)" />
+		<column name="id" type="long" primary="true" />
+		<column name="name" type="String" />
 	</entity>
 
 	<entity name="ElectroEmployee" uuid="true" local-service="true" remote-service="true" >
-		<column name="employeeid" type="bigint" primary="true" />
-		<column name="etype" type="bigint" />
-	</entity>
+		<column name="employeeid" type="long" primary="true" />
+		<column name="etype" type="long" />
 
-
-		<!-- Finder methods -->
-	<finder name="employeeid" return-type="Collection">
-		<finder-column name="employee_id" />
-	</finder>
-
-	<finder name="electroid" return-type="Collection">
-		<finder-column name="electronics_id"/>
-	</finder>
-
-	<finder name="type" return-type="Collection">
-		<finder-column name="id"/>
-	</finder>
-
-	<finder name="employee_id" return-type="Collection">
-		<finder-column name="employeeid" />
-	</finder>
-
-	<finder name="position" return-type="Collection">
-		<finder-column name="id" />
-	</finder>
-
-	<finder name="id" return-type="Collection">
-		<finder-column name="etype" />
-	</finder>
-
-	<finder name="etype" return-type="Collection">
-		<finder-column name="id"/>
-	</finder>
 
 
 		<!-- Order -->
