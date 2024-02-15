@@ -7,6 +7,25 @@
 	<packaging>pom</packaging>
 	<name>store</name>
 	<version>1.0-SNAPSHOT</version>
+
+	<properties>
+		<compiler.maven.source>1.8</compiler.maven.source>
+		<compiler.maven.source>1.8</compiler.maven.source>
+
+		<liferay.version>6.2.5</liferay.version>
+
+		<liferayVersion>${liferay.version}</liferayVersion>
+		<liferay.maven.plugin.version>${liferay.version}</liferay.maven.plugin.version>
+
+		<portal.dir>/home/scrubi19/ProgramFiles/liferay-portal-6.2-ce-ga6</portal.dir>
+		<tomcat.dir>${portal.dir}/tomcat-7.0.62</tomcat.dir>
+
+		<liferay.app.server.deploy.dir>${tomcat.dir}/webapps</liferay.app.server.deploy.dir>
+		<liferay.app.server.lib.global.dir>${tomcat.dir}/lib/ext</liferay.app.server.lib.global.dir>
+		<liferay.app.server.portal.dir>${tomcat.dir}/webapps/ROOT</liferay.app.server.portal.dir>
+		<liferay.auto.deploy.dir>${portal.dir}/deploy</liferay.auto.deploy.dir>
+	</properties>
+
 	<build>
 		<plugins>
 			<plugin>
