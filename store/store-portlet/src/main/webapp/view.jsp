@@ -1,21 +1,48 @@
-<%--
-/**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
---%>
-
 <%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
+<%@ taglib uri="http://alloy.liferay.com/tld/aui" prefix="aui" %>
 
-<portlet:defineObjects />
+<aui:button-row cssClass="main-menu">
 
-This is the <b>store</b>.
+    <portlet:renderURL var="showAllEmployeeFunc">
+        <portlet:param name="mvcPath" value="/jsp/Employee/menu.jsp"/>
+    </portlet:renderURL>
+
+    <aui:button onClick="<%= showAllEmployeeFunc %>" value="Employee"></aui:button>
+
+    <portlet:renderURL var="showAllElectronicsFunc">
+        <portlet:param name="mvcPath" value="/jsp/Electronics/menu.jsp"/>
+    </portlet:renderURL>
+
+    <aui:button onClick="<%= showAllElectronicsFunc %>" value="Electronics"></aui:button>
+
+     <portlet:renderURL var="showAllPurchaseFunc">
+        <portlet:param name="mvcPath" value="/jsp/Purchase/menu.jsp"/>
+     </portlet:renderURL>
+
+     <aui:button onClick="<%= showAllPurchaseFunc %>" value="Purchase"></aui:button>
+
+     <portlet:renderURL var="showAllPositionTypeFunc">
+        <portlet:param name="mvcPath" value="/jsp/PositionType/menu.jsp"/>
+     </portlet:renderURL>
+
+     <aui:button onClick="<%= showAllPositionTypeFunc %>" value="PositionType"></aui:button>
+
+     <portlet:renderURL var="showAllElectroTypeFunc">
+        <portlet:param name="mvcPath" value="/jsp/ElectroType/menu.jsp"/>
+     </portlet:renderURL>
+
+     <aui:button onClick="<%= showAllElectroTypeFunc %>" value="ElectroType"></aui:button>
+
+     <portlet:renderURL var="showAllPurchaseTypeFunc">
+        <portlet:param name="mvcPath" value="/jsp/PurchaseType/menu.jsp"/>
+     </portlet:renderURL>
+
+     <aui:button onClick="<%= showAllPurchaseTypeFunc %>" value="PurchaseType"></aui:button>
+
+     <portlet:renderURL var="showAllElectroEmployeeFunc">
+        <portlet:param name="mvcPath" value="/jsp/ElectroEmployee/menu.jsp"/>
+     </portlet:renderURL>
+
+     <aui:button onClick="<%= showAllElectroEmployeeFunc %>" value="ElectroEmployee"></aui:button>
+
+</aui:button-row>
