@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="ru.hmel.service.ElectroEmployeeLocalService" class="ru.hmel.service.impl.ElectroEmployeeLocalServiceImpl" />
+	<bean id="ru.hmel.service.ElectroEmployeeService" class="ru.hmel.service.impl.ElectroEmployeeServiceImpl" />
+	<bean id="ru.hmel.service.persistence.ElectroEmployeePersistence" class="ru.hmel.service.persistence.ElectroEmployeePersistenceImpl" parent="basePersistence" />
+	<bean id="ru.hmel.service.ElectronicsLocalService" class="ru.hmel.service.impl.ElectronicsLocalServiceImpl" />
+	<bean id="ru.hmel.service.ElectronicsService" class="ru.hmel.service.impl.ElectronicsServiceImpl" />
+	<bean id="ru.hmel.service.persistence.ElectronicsPersistence" class="ru.hmel.service.persistence.ElectronicsPersistenceImpl" parent="basePersistence" />
+	<bean id="ru.hmel.service.ElectroTypeLocalService" class="ru.hmel.service.impl.ElectroTypeLocalServiceImpl" />
+	<bean id="ru.hmel.service.ElectroTypeService" class="ru.hmel.service.impl.ElectroTypeServiceImpl" />
+	<bean id="ru.hmel.service.persistence.ElectroTypePersistence" class="ru.hmel.service.persistence.ElectroTypePersistenceImpl" parent="basePersistence" />
+	<bean id="ru.hmel.service.EmployeeLocalService" class="ru.hmel.service.impl.EmployeeLocalServiceImpl" />
+	<bean id="ru.hmel.service.EmployeeService" class="ru.hmel.service.impl.EmployeeServiceImpl" />
+	<bean id="ru.hmel.service.persistence.EmployeePersistence" class="ru.hmel.service.persistence.EmployeePersistenceImpl" parent="basePersistence" />
+	<bean id="ru.hmel.service.PositionTypeLocalService" class="ru.hmel.service.impl.PositionTypeLocalServiceImpl" />
+	<bean id="ru.hmel.service.PositionTypeService" class="ru.hmel.service.impl.PositionTypeServiceImpl" />
+	<bean id="ru.hmel.service.persistence.PositionTypePersistence" class="ru.hmel.service.persistence.PositionTypePersistenceImpl" parent="basePersistence" />
+	<bean id="ru.hmel.service.PurchaseLocalService" class="ru.hmel.service.impl.PurchaseLocalServiceImpl" />
+	<bean id="ru.hmel.service.PurchaseService" class="ru.hmel.service.impl.PurchaseServiceImpl" />
+	<bean id="ru.hmel.service.persistence.PurchasePersistence" class="ru.hmel.service.persistence.PurchasePersistenceImpl" parent="basePersistence" />
+	<bean id="ru.hmel.service.PurchaseTypeLocalService" class="ru.hmel.service.impl.PurchaseTypeLocalServiceImpl" />
+	<bean id="ru.hmel.service.PurchaseTypeService" class="ru.hmel.service.impl.PurchaseTypeServiceImpl" />
+	<bean id="ru.hmel.service.persistence.PurchaseTypePersistence" class="ru.hmel.service.persistence.PurchaseTypePersistenceImpl" parent="basePersistence" />
+</beans>

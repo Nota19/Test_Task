@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="ru.hmel.model.ElectroEmployee">
+		<field name="uuid" type="String" />
+		<field name="electro_employee_id" type="long" />
+		<field name="etype" type="long" />
+	</model>
+	<model name="ru.hmel.model.Electronics">
+		<field name="uuid" type="String" />
+		<field name="electronics_id" type="long" />
+		<field name="name" type="String" />
+		<field name="etype" type="long" />
+		<field name="price" type="long" />
+		<field name="count" type="long" />
+		<field name="inStock" type="boolean" />
+		<field name="archive" type="boolean" />
+		<field name="description" type="String" />
+	</model>
+	<model name="ru.hmel.model.ElectroType">
+		<field name="uuid" type="String" />
+		<field name="electro_type_id" type="long" />
+		<field name="name" type="String" />
+	</model>
+	<model name="ru.hmel.model.Employee">
+		<field name="uuid" type="String" />
+		<field name="employee_id" type="long" />
+		<field name="lastname" type="String" />
+		<field name="firstname" type="String" />
+		<field name="patronymic" type="String" />
+		<field name="birthdate" type="Date" />
+		<field name="position" type="long" />
+		<field name="gender" type="boolean" />
+	</model>
+	<model name="ru.hmel.model.PositionType">
+		<field name="uuid" type="String" />
+		<field name="position_id" type="long" />
+		<field name="name" type="String" />
+	</model>
+	<model name="ru.hmel.model.Purchase">
+		<field name="uuid" type="String" />
+		<field name="purchase_id" type="long" />
+		<field name="electro_id" type="long" />
+		<field name="employee_id" type="long" />
+		<field name="purchaseDate" type="Date" />
+		<field name="type" type="long" />
+	</model>
+	<model name="ru.hmel.model.PurchaseType">
+		<field name="uuid" type="String" />
+		<field name="purchase_type_id" type="long" />
+		<field name="name" type="String" />
+	</model>
+</model-hints>

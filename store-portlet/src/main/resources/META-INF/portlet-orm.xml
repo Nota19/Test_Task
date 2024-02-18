@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+	<persistence-unit-metadata>
+		<xml-mapping-metadata-complete/>
+		<persistence-unit-defaults>
+			<access>PROPERTY</access>
+		</persistence-unit-defaults>
+	</persistence-unit-metadata>
+	<mapped-superclass class="ru.hmel.model.impl.ElectroEmployeeModelImpl">
+		<attributes>
+			<id name="electro_employee_id" />
+			<basic name="uuid">
+				<column name="UUID_" />
+			</basic>
+			<basic name="etype" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="ru.hmel.model.impl.ElectronicsModelImpl">
+		<attributes>
+			<id name="electronics_id" />
+			<basic name="uuid">
+				<column name="UUID_" />
+			</basic>
+			<basic name="name" />
+			<basic name="etype" />
+			<basic name="price" />
+			<basic name="count" />
+			<basic name="inStock" />
+			<basic name="archive" />
+			<basic name="description" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="ru.hmel.model.impl.ElectroTypeModelImpl">
+		<attributes>
+			<id name="electro_type_id" />
+			<basic name="uuid">
+				<column name="UUID_" />
+			</basic>
+			<basic name="name" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="ru.hmel.model.impl.EmployeeModelImpl">
+		<attributes>
+			<id name="employee_id" />
+			<basic name="uuid">
+				<column name="UUID_" />
+			</basic>
+			<basic name="lastname" />
+			<basic name="firstname" />
+			<basic name="patronymic" />
+			<basic name="birthdate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="position" />
+			<basic name="gender" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="ru.hmel.model.impl.PositionTypeModelImpl">
+		<attributes>
+			<id name="position_id" />
+			<basic name="uuid">
+				<column name="UUID_" />
+			</basic>
+			<basic name="name" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="ru.hmel.model.impl.PurchaseModelImpl">
+		<attributes>
+			<id name="purchase_id" />
+			<basic name="uuid">
+				<column name="UUID_" />
+			</basic>
+			<basic name="electro_id" />
+			<basic name="employee_id" />
+			<basic name="purchaseDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="type">
+				<column name="TYPE_" />
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="ru.hmel.model.impl.PurchaseTypeModelImpl">
+		<attributes>
+			<id name="purchase_type_id" />
+			<basic name="uuid">
+				<column name="UUID_" />
+			</basic>
+			<basic name="name" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<entity class="ru.hmel.model.impl.ElectroEmployeeImpl" name="ElectroEmployee">
+		<table name="store_ElectroEmployee" />
+		<attributes />
+	</entity>
+	<entity class="ru.hmel.model.impl.ElectronicsImpl" name="Electronics">
+		<table name="store_Electronics" />
+		<attributes />
+	</entity>
+	<entity class="ru.hmel.model.impl.ElectroTypeImpl" name="ElectroType">
+		<table name="store_ElectroType" />
+		<attributes />
+	</entity>
+	<entity class="ru.hmel.model.impl.EmployeeImpl" name="Employee">
+		<table name="store_Employee" />
+		<attributes />
+	</entity>
+	<entity class="ru.hmel.model.impl.PositionTypeImpl" name="PositionType">
+		<table name="store_PositionType" />
+		<attributes />
+	</entity>
+	<entity class="ru.hmel.model.impl.PurchaseImpl" name="Purchase">
+		<table name="store_Purchase" />
+		<attributes />
+	</entity>
+	<entity class="ru.hmel.model.impl.PurchaseTypeImpl" name="PurchaseType">
+		<table name="store_PurchaseType" />
+		<attributes />
+	</entity>
+</entity-mappings>
