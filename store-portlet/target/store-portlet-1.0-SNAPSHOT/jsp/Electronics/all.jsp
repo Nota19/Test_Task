@@ -1,14 +1,14 @@
 <%@include file="../init.jsp"%>
 
 <portlet:renderURL var="addElectronics">
-    <portlet:param name="mvcPath" value="../jsp/Electronics/add.jsp"/>
+    <portlet:param name="mvcPath" value="/Electronics/add.jsp"/>
 </portlet:renderURL>
 
 <aui:button onClick="<%= addElectronics %>" value="Add new Electronics"/>
 
 <liferay-ui:search-container>
     <liferay-ui:search-container-results
-            results="<%=ElectronicsLocalServiceUtil.getElectronics(serchContainer.getStart(), serchContainer.getEnd())%>"/>
+            results="<%=ElectronicsLocalServiceUtil.getElectronics(searchContainer.getStart(), searchContainer.getEnd())%>"/>
 
     <liferay-ui:search-container-row
             className="ru.hmel.liferay.model.Electronics" modelVar="Electronics">
@@ -21,7 +21,7 @@
         <liferay-ui:search-container-column-text property="inStock" name="In stock"/>
         <liferay-ui:search-container-column-text property="archive" name="Archive"/>
         <liferay-ui:search-container-column-text property="description" name="Description"/>
-        <liferay-ui:search-container-column-jsp path=""
+        <liferay-ui:search-container-column-jsp path=""/>
 
     </liferay-ui:search-container-row>
 
@@ -31,7 +31,7 @@
 <aui:button-row cssClass="back">
 
     <portlet:renderURL var="backViewURL">
-        <portlet:param name="mvcPath" value="../jsp/Electronics/menu.jsp"/>
+        <portlet:param name="mvcPath" value="/Electronics/menu.jsp"/>
     </portlet:renderURL>
 
     <aui:button onClick="<%= backViewURL %>" value="Back"/>

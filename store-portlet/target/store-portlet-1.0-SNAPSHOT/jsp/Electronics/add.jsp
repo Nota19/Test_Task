@@ -1,7 +1,7 @@
 <%@include file="../init.jsp"%>
 
 <portlet:renderURL var="addElectronicsURL">
-    <portlet:param name="mvcPath" value="../Electronics/all.jsp"/>
+    <portlet:param name="mvcPath" value="/jsp/Electronics/all.jsp"/>
 </portlet:renderURL>
 
 <portlet:actionURL name="addElectronics" var="addElectronicsURL"/>

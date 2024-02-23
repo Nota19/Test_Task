@@ -1,6 +1,6 @@
 <%@include file="../init.jsp"%>
 
-<jsp:useBean id="currentEmployee" type="ru.hmel.liferay.model.Employee" scope="request" />
+<jsp:useBean id="currentEmployee" type="ru.hmel.model.Employee" scope="request" />
 
 <portlet:actionURL name="updateEmployee" var="updateEmployeeURL" />
 <aui:form action="<%= updateEmployeeURL %>" name="<portlet:namespace />fm">

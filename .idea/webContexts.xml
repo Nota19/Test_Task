@@ -4,6 +4,8 @@
     <option name="state">
       <map>
         <entry key="file://$PROJECT_DIR$/store-portlet/src/main/webapp/jsp/Employee/buttons/edit.jsp" value="file://$PROJECT_DIR$/store-portlet/src/main/webapp/jsp/Employee/buttons" />
+        <entry key="file://$PROJECT_DIR$/store-portlet/src/main/webapp/jsp/Purchase/all.jsp" value="file://$PROJECT_DIR$/store-portlet/src/main/webapp/jsp/Purchase" />
+        <entry key="file://$PROJECT_DIR$/store-portlet/src/main/webapp/jsp/csvReader/csvEmployee.jsp" value="file://$PROJECT_DIR$/store-portlet/src/main/webapp/jsp/csvReader" />
         <entry key="file://$PROJECT_DIR$/store-portlet/src/main/webapp/jsp/init.jsp" value="file://$PROJECT_DIR$/store-portlet/src/main/webapp/jsp" />
         <entry key="file://$PROJECT_DIR$/store-portlet/src/main/webapp/view.jsp" value="file://$PROJECT_DIR$/store-portlet/src/main/webapp" />
       </map>

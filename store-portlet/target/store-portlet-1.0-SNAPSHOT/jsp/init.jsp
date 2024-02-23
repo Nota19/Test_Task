@@ -5,21 +5,21 @@
 <%@ page import="com.liferay.portal.kernel.dao.search.ResultRow" %>
 <%@ page import="com.liferay.portal.kernel.util.WebKeys" %>
 
-<%@ page import="ru.hmel.liferay.model.Employee" %>
-<%@ page import="ru.hmel.liferay.model.Electronics" %>
-<%@ page import="ru.hmel.liferay.model.Purchase" %>
-<%@ page import="ru.hmel.liferay.model.PositionType" %>
-<%@ page import="ru.hmel.liferay.model.ElectroType" %>
-<%@ page import="ru.hmel.liferay.model.PurchaseType" %>
-<%@ page import="ru.hmel.liferay.model.ElectroEmployee" %>
+<%@ page import="ru.hmel.model.Employee" %>
+<%@ page import="ru.hmel.model.Electronics" %>
+<%@ page import="ru.hmel.model.Purchase" %>
+<%@ page import="ru.hmel.model.PositionType" %>
+<%@ page import="ru.hmel.model.ElectroType" %>
+<%@ page import="ru.hmel.model.PurchaseType" %>
+<%@ page import="ru.hmel.model.ElectroEmployee" %>
 
-<%@ page import="ru.hmel.liferay.service.EmployeeLocalServiceUtil" %>
-<%@ page import="ru.hmel.liferay.service.ElectronicsLocalServiceUtil" %>
-<%@ page import="ru.hmel.liferay.service.PurchaseLocalServiceUtil" %>
-<%@ page import="ru.hmel.liferay.service.PositionTypeLocalServiceUtil" %>
-<%@ page import="ru.hmel.liferay.service.ElectroTypeLocalServiceUtil" %>
-<%@ page import="ru.hmel.liferay.service.PurchaseTypeLocalServiceUtil" %>
-<%@ page import="ru.hmel.liferay.service.ElectroEmployeeLocalServiceUtil" %>
+<%@ page import="ru.hmel.service.EmployeeLocalServiceUtil" %>
+<%@ page import="ru.hmel.service.ElectronicsLocalServiceUtil" %>
+<%@ page import="ru.hmel.service.PurchaseLocalServiceUtil" %>
+<%@ page import="ru.hmel.service.PositionTypeLocalServiceUtil" %>
+<%@ page import="ru.hmel.service.ElectroTypeLocalServiceUtil" %>
+<%@ page import="ru.hmel.service.PurchaseTypeLocalServiceUtil" %>
+<%@ page import="ru.hmel.service.ElectroEmployeeLocalServiceUtil" %>
 
 <portlet:defineObjects />
 

@@ -21,28 +21,5 @@
 
      <aui:button onClick="<%= showAllPurchaseFunc %>" value="Purchase"></aui:button>
 
-     <portlet:renderURL var="showAllPositionTypeFunc">
-        <portlet:param name="mvcPath" value="/jsp/PositionType/menu.jsp"/>
-     </portlet:renderURL>
-
-     <aui:button onClick="<%= showAllPositionTypeFunc %>" value="PositionType"></aui:button>
-
-     <portlet:renderURL var="showAllElectroTypeFunc">
-        <portlet:param name="mvcPath" value="/jsp/ElectroType/menu.jsp"/>
-     </portlet:renderURL>
-
-     <aui:button onClick="<%= showAllElectroTypeFunc %>" value="ElectroType"></aui:button>
-
-     <portlet:renderURL var="showAllPurchaseTypeFunc">
-        <portlet:param name="mvcPath" value="/jsp/PurchaseType/menu.jsp"/>
-     </portlet:renderURL>
-
-     <aui:button onClick="<%= showAllPurchaseTypeFunc %>" value="PurchaseType"></aui:button>
-
-     <portlet:renderURL var="showAllElectroEmployeeFunc">
-        <portlet:param name="mvcPath" value="/jsp/ElectroEmployee/menu.jsp"/>
-     </portlet:renderURL>
-
-     <aui:button onClick="<%= showAllElectroEmployeeFunc %>" value="ElectroEmployee"></aui:button>
 
 </aui:button-row>

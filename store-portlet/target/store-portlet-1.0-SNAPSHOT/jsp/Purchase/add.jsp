@@ -1,7 +1,7 @@
 <%@include file="../init.jsp"%>
 
 <portlet:renderURL var="addPurchaseURL">
-    <portlet:param name="mvcPath" value="../Purchase/all.jsp"/>
+    <portlet:param name="mvcPath" value="/jsp/Purchase/all.jsp"/>
 </portlet:renderURL>
 
 <portlet:actionURL name="addPurchase" var="addPurchaseURL"/>

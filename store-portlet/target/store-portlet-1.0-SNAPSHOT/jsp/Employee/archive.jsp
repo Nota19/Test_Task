@@ -1,6 +1,6 @@
 <%@include file="../init.jsp"%>
 
-<jsp:useBean id="currentEmployeeWithArchive" type="ru.hmel.liferay.model.Employee" scope="request" />
+<jsp:useBean id="currentEmployeeWithArchive" type="ru.hmel.model.Employee" scope="request" />
 
 <liferay-ui:search-container>
     <liferay-ui:search-container-results

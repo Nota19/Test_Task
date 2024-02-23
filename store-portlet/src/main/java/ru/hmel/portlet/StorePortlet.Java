@@ -1,7 +1,7 @@
 package ru.hmel.portlet;
 
-import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.upload.UploadPortletRequest;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.util.bridges.mvc.MVCPortlet;
 
@@ -19,12 +19,38 @@ import ru.hmel.service.ElectronicsLocalServiceUtil;
 import ru.hmel.service.EmployeeLocalServiceUtil;
 import ru.hmel.service.PurchaseLocalServiceUtil;
 
+import java.io.*;
+import java.io.BufferedReader;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 public class StorePortlet extends MVCPortlet{
+
+    public static List<String[]> readLineByLine(Path filePath) throws Exception {
+        List<String[]> list = new ArrayList<>();
+
+        CSVParser parser = new CSVParserBuilder()
+                .withSeparator(',')
+                .withIgnoreQuotations(true)
+                .build();
+
+        try (Reader reader = Files.newBufferedReader(filePath)) {
+
+            CSVReaderBuilder csvReaderBuilder = new CSVReaderBuilder(reader)
+                    .withSkipLines(0)
+                    .withCSVParser(parser);
+
+            try (CSVReader csvReader = csvReaderBuilder.build()) {
+                String[] line;
+                while ((line = csvReader.readNext()) != null) {
+                    list.add(line);
+                }
+            }
+
+        }
+        return list;
+    }
 
     public void addEmployee(ActionRequest request, ActionResponse response) throws SystemException {
         Employee Employee = new EmployeeImpl();
@@ -41,7 +67,7 @@ public class StorePortlet extends MVCPortlet{
             Employee.setPosition(ParamUtil.getLong(request, "Position"));
             Employee.setGender(ParamUtil.getBoolean(request, "Gender"));
             EmployeeLocalServiceUtil.addEmployee(Employee);
-            response.setRenderParameter("jspPage", "../jsp/Employee/all.jsp");
+            response.setRenderParameter("jspPage", "/jsp/Employee/add.jsp");
         } catch (Exception e) {
             System.out.println("Exception"+e+"was caught");
             e.printStackTrace();
@@ -66,7 +92,7 @@ public class StorePortlet extends MVCPortlet{
         Employee.setFirstname(ParamUtil.getString(request, "First name"));
 
         EmployeeLocalServiceUtil.updateEmployee(Employee);
-        response.setRenderParameter("jspPage", "../jsp/Employee/all.jsp");
+        response.setRenderParameter("jspPage", "/jsp/Employee/edit.jsp");
     }
 
     public void addPurchase(ActionRequest request, ActionResponse response) throws SystemException {
@@ -83,7 +109,7 @@ public class StorePortlet extends MVCPortlet{
             Purchase.setType(ParamUtil.getLong(request, "Type"));
 
             PurchaseLocalServiceUtil.addPurchase(Purchase);
-            response.setRenderParameter("jspPage", "../jsp/Purchase/all.jsp");
+            response.setRenderParameter("jspPage", "/jsp/Purchase/add.jsp");
         } catch (Exception e) {
             System.out.println("Exception" + e + " was caught");
             e.printStackTrace();
@@ -104,7 +130,7 @@ public class StorePortlet extends MVCPortlet{
         Purchase.setType(ParamUtil.getLong(request, "Type"));
 
         PurchaseLocalServiceUtil.updatePurchase(Purchase);
-        response.setRenderParameter("jspPage", "../jsp/Purchase/all.jsp");
+        response.setRenderParameter("jspPage", "/jsp/Purchase/edit.jsp");
     }
 
     public void addElectronics(ActionRequest request, ActionResponse response) {
@@ -120,7 +146,7 @@ public class StorePortlet extends MVCPortlet{
             Electronics.setDescription(ParamUtil.getString(request, "Description"));
 
             ElectronicsLocalServiceUtil.addElectronics(Electronics);
-            response.setRenderParameter("jspPage", "../jsp/Electronics/all.jsp");
+            response.setRenderParameter("jspPage", "/jsp/Electronics/add.jsp");
 
         } catch (Exception e) {
             System.out.println("Exception" + e + " was caught");
@@ -140,7 +166,7 @@ public class StorePortlet extends MVCPortlet{
         Electronics.setDescription(ParamUtil.getString(request, "Description"));
 
         ElectronicsLocalServiceUtil.updateElectronics(Electronics);
-        response.setRenderParameter("jspPage", "../jsp/Electronics/all.jsp");
+        response.setRenderParameter("jspPage", "/jsp/Electronics/edit.jsp");
 
     }
 
@@ -175,8 +201,7 @@ public class StorePortlet extends MVCPortlet{
 
     }
 
-    public void AllEmployee(ActionRequest request, ActionResponse response) {
-
+    public void AllSalesEmployees(ActionRequest request, ActionResponse response) {
 
 
     }
