@@ -20,7 +20,6 @@ import java.util.Map;
 
 public class ElectroEmployeeClp extends BaseModelImpl<ElectroEmployee>
     implements ElectroEmployee {
-    private String _uuid;
     private long _electro_employee_id;
     private long _etype;
     private BaseModel<?> _electroEmployeeRemoteModel;
@@ -63,7 +62,6 @@ public class ElectroEmployeeClp extends BaseModelImpl<ElectroEmployee>
     public Map<String, Object> getModelAttributes() {
         Map<String, Object> attributes = new HashMap<String, Object>();
 
-        attributes.put("uuid", getUuid());
         attributes.put("electro_employee_id", getElectro_employee_id());
         attributes.put("etype", getEtype());
 
@@ -72,12 +70,6 @@ public class ElectroEmployeeClp extends BaseModelImpl<ElectroEmployee>
 
     @Override
     public void setModelAttributes(Map<String, Object> attributes) {
-        String uuid = (String) attributes.get("uuid");
-
-        if (uuid != null) {
-            setUuid(uuid);
-        }
-
         Long electro_employee_id = (Long) attributes.get("electro_employee_id");
 
         if (electro_employee_id != null) {
@@ -88,28 +80,6 @@ public class ElectroEmployeeClp extends BaseModelImpl<ElectroEmployee>
 
         if (etype != null) {
             setEtype(etype);
-        }
-    }
-
-    @Override
-    public String getUuid() {
-        return _uuid;
-    }
-
-    @Override
-    public void setUuid(String uuid) {
-        _uuid = uuid;
-
-        if (_electroEmployeeRemoteModel != null) {
-            try {
-                Class<?> clazz = _electroEmployeeRemoteModel.getClass();
-
-                Method method = clazz.getMethod("setUuid", String.class);
-
-                method.invoke(_electroEmployeeRemoteModel, uuid);
-            } catch (Exception e) {
-                throw new UnsupportedOperationException(e);
-            }
         }
     }
 
@@ -227,7 +197,6 @@ public class ElectroEmployeeClp extends BaseModelImpl<ElectroEmployee>
     public Object clone() {
         ElectroEmployeeClp clone = new ElectroEmployeeClp();
 
-        clone.setUuid(getUuid());
         clone.setElectro_employee_id(getElectro_employee_id());
         clone.setEtype(getEtype());
 
@@ -279,11 +248,9 @@ public class ElectroEmployeeClp extends BaseModelImpl<ElectroEmployee>
 
     @Override
     public String toString() {
-        StringBundler sb = new StringBundler(7);
+        StringBundler sb = new StringBundler(5);
 
-        sb.append("{uuid=");
-        sb.append(getUuid());
-        sb.append(", electro_employee_id=");
+        sb.append("{electro_employee_id=");
         sb.append(getElectro_employee_id());
         sb.append(", etype=");
         sb.append(getEtype());
@@ -294,16 +261,12 @@ public class ElectroEmployeeClp extends BaseModelImpl<ElectroEmployee>
 
     @Override
     public String toXmlString() {
-        StringBundler sb = new StringBundler(13);
+        StringBundler sb = new StringBundler(10);
 
         sb.append("<model><model-name>");
         sb.append("ru.hmel.model.ElectroEmployee");
         sb.append("</model-name>");
 
-        sb.append(
-            "<column><column-name>uuid</column-name><column-value><![CDATA[");
-        sb.append(getUuid());
-        sb.append("]]></column-value></column>");
         sb.append(
             "<column><column-name>electro_employee_id</column-name><column-value><![CDATA[");
         sb.append(getElectro_employee_id());

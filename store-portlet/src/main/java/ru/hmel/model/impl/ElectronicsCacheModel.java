@@ -14,13 +14,12 @@ import java.io.ObjectOutput;
 /**
  * The cache model class for representing Electronics in entity cache.
  *
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @see Electronics
  * @generated
  */
 public class ElectronicsCacheModel implements CacheModel<Electronics>,
     Externalizable {
-    public String uuid;
     public long electronics_id;
     public String name;
     public long etype;
@@ -32,11 +31,9 @@ public class ElectronicsCacheModel implements CacheModel<Electronics>,
 
     @Override
     public String toString() {
-        StringBundler sb = new StringBundler(19);
+        StringBundler sb = new StringBundler(17);
 
-        sb.append("{uuid=");
-        sb.append(uuid);
-        sb.append(", electronics_id=");
+        sb.append("{electronics_id=");
         sb.append(electronics_id);
         sb.append(", name=");
         sb.append(name);
@@ -60,12 +57,6 @@ public class ElectronicsCacheModel implements CacheModel<Electronics>,
     @Override
     public Electronics toEntityModel() {
         ElectronicsImpl electronicsImpl = new ElectronicsImpl();
-
-        if (uuid == null) {
-            electronicsImpl.setUuid(StringPool.BLANK);
-        } else {
-            electronicsImpl.setUuid(uuid);
-        }
 
         electronicsImpl.setElectronics_id(electronics_id);
 
@@ -94,7 +85,6 @@ public class ElectronicsCacheModel implements CacheModel<Electronics>,
 
     @Override
     public void readExternal(ObjectInput objectInput) throws IOException {
-        uuid = objectInput.readUTF();
         electronics_id = objectInput.readLong();
         name = objectInput.readUTF();
         etype = objectInput.readLong();
@@ -108,12 +98,6 @@ public class ElectronicsCacheModel implements CacheModel<Electronics>,
     @Override
     public void writeExternal(ObjectOutput objectOutput)
         throws IOException {
-        if (uuid == null) {
-            objectOutput.writeUTF(StringPool.BLANK);
-        } else {
-            objectOutput.writeUTF(uuid);
-        }
-
         objectOutput.writeLong(electronics_id);
 
         if (name == null) {

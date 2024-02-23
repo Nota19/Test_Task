@@ -12,7 +12,7 @@ import java.util.Map;
  * This class is a wrapper for {@link Purchase}.
  * </p>
  *
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @see Purchase
  * @generated
  */
@@ -37,7 +37,6 @@ public class PurchaseWrapper implements Purchase, ModelWrapper<Purchase> {
     public Map<String, Object> getModelAttributes() {
         Map<String, Object> attributes = new HashMap<String, Object>();
 
-        attributes.put("uuid", getUuid());
         attributes.put("purchase_id", getPurchase_id());
         attributes.put("electro_id", getElectro_id());
         attributes.put("employee_id", getEmployee_id());
@@ -49,12 +48,6 @@ public class PurchaseWrapper implements Purchase, ModelWrapper<Purchase> {
 
     @Override
     public void setModelAttributes(Map<String, Object> attributes) {
-        String uuid = (String) attributes.get("uuid");
-
-        if (uuid != null) {
-            setUuid(uuid);
-        }
-
         Long purchase_id = (Long) attributes.get("purchase_id");
 
         if (purchase_id != null) {
@@ -104,26 +97,6 @@ public class PurchaseWrapper implements Purchase, ModelWrapper<Purchase> {
     @Override
     public void setPrimaryKey(long primaryKey) {
         _purchase.setPrimaryKey(primaryKey);
-    }
-
-    /**
-    * Returns the uuid of this purchase.
-    *
-    * @return the uuid of this purchase
-    */
-    @Override
-    public java.lang.String getUuid() {
-        return _purchase.getUuid();
-    }
-
-    /**
-    * Sets the uuid of this purchase.
-    *
-    * @param uuid the uuid of this purchase
-    */
-    @Override
-    public void setUuid(java.lang.String uuid) {
-        _purchase.setUuid(uuid);
     }
 
     /**

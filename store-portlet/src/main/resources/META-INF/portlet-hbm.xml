@@ -14,7 +14,6 @@
 		<id name="electro_employee_id" type="long">
 			<generator class="assigned" />
 		</id>
-		<property name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" column="uuid_" />
 		<property name="etype" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 	</class>
 	<class name="ru.hmel.model.impl.ElectronicsImpl" table="store_Electronics">
@@ -22,7 +21,6 @@
 		<id name="electronics_id" type="long">
 			<generator class="assigned" />
 		</id>
-		<property name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" column="uuid_" />
 		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="etype" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="price" type="com.liferay.portal.dao.orm.hibernate.LongType" />
@@ -36,7 +34,6 @@
 		<id name="electro_type_id" type="long">
 			<generator class="assigned" />
 		</id>
-		<property name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" column="uuid_" />
 		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 	</class>
 	<class name="ru.hmel.model.impl.EmployeeImpl" table="store_Employee">
@@ -44,7 +41,6 @@
 		<id name="employee_id" type="long">
 			<generator class="assigned" />
 		</id>
-		<property name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" column="uuid_" />
 		<property name="lastname" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="firstname" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="patronymic" type="com.liferay.portal.dao.orm.hibernate.StringType" />
@@ -57,7 +53,6 @@
 		<id name="position_id" type="long">
 			<generator class="assigned" />
 		</id>
-		<property name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" column="uuid_" />
 		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 	</class>
 	<class name="ru.hmel.model.impl.PurchaseImpl" table="store_Purchase">
@@ -65,7 +60,6 @@
 		<id name="purchase_id" type="long">
 			<generator class="assigned" />
 		</id>
-		<property name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" column="uuid_" />
 		<property name="electro_id" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="employee_id" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="purchaseDate" type="org.hibernate.type.TimestampType" />
@@ -76,7 +70,6 @@
 		<id name="purchase_type_id" type="long">
 			<generator class="assigned" />
 		</id>
-		<property name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" column="uuid_" />
 		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 	</class>
 </hibernate-mapping>

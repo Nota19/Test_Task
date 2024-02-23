@@ -10,9 +10,6 @@
 	<mapped-superclass class="ru.hmel.model.impl.ElectroEmployeeModelImpl">
 		<attributes>
 			<id name="electro_employee_id" />
-			<basic name="uuid">
-				<column name="UUID_" />
-			</basic>
 			<basic name="etype" />
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
@@ -22,9 +19,6 @@
 	<mapped-superclass class="ru.hmel.model.impl.ElectronicsModelImpl">
 		<attributes>
 			<id name="electronics_id" />
-			<basic name="uuid">
-				<column name="UUID_" />
-			</basic>
 			<basic name="name" />
 			<basic name="etype" />
 			<basic name="price" />
@@ -40,9 +34,6 @@
 	<mapped-superclass class="ru.hmel.model.impl.ElectroTypeModelImpl">
 		<attributes>
 			<id name="electro_type_id" />
-			<basic name="uuid">
-				<column name="UUID_" />
-			</basic>
 			<basic name="name" />
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
@@ -52,9 +43,6 @@
 	<mapped-superclass class="ru.hmel.model.impl.EmployeeModelImpl">
 		<attributes>
 			<id name="employee_id" />
-			<basic name="uuid">
-				<column name="UUID_" />
-			</basic>
 			<basic name="lastname" />
 			<basic name="firstname" />
 			<basic name="patronymic" />
@@ -71,9 +59,6 @@
 	<mapped-superclass class="ru.hmel.model.impl.PositionTypeModelImpl">
 		<attributes>
 			<id name="position_id" />
-			<basic name="uuid">
-				<column name="UUID_" />
-			</basic>
 			<basic name="name" />
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
@@ -83,9 +68,6 @@
 	<mapped-superclass class="ru.hmel.model.impl.PurchaseModelImpl">
 		<attributes>
 			<id name="purchase_id" />
-			<basic name="uuid">
-				<column name="UUID_" />
-			</basic>
 			<basic name="electro_id" />
 			<basic name="employee_id" />
 			<basic name="purchaseDate">
@@ -102,9 +84,6 @@
 	<mapped-superclass class="ru.hmel.model.impl.PurchaseTypeModelImpl">
 		<attributes>
 			<id name="purchase_type_id" />
-			<basic name="uuid">
-				<column name="UUID_" />
-			</basic>
 			<basic name="name" />
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />

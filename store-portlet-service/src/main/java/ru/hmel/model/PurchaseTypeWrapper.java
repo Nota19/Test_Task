@@ -11,7 +11,7 @@ import java.util.Map;
  * This class is a wrapper for {@link PurchaseType}.
  * </p>
  *
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @see PurchaseType
  * @generated
  */
@@ -37,7 +37,6 @@ public class PurchaseTypeWrapper implements PurchaseType,
     public Map<String, Object> getModelAttributes() {
         Map<String, Object> attributes = new HashMap<String, Object>();
 
-        attributes.put("uuid", getUuid());
         attributes.put("purchase_type_id", getPurchase_type_id());
         attributes.put("name", getName());
 
@@ -46,12 +45,6 @@ public class PurchaseTypeWrapper implements PurchaseType,
 
     @Override
     public void setModelAttributes(Map<String, Object> attributes) {
-        String uuid = (String) attributes.get("uuid");
-
-        if (uuid != null) {
-            setUuid(uuid);
-        }
-
         Long purchase_type_id = (Long) attributes.get("purchase_type_id");
 
         if (purchase_type_id != null) {
@@ -83,26 +76,6 @@ public class PurchaseTypeWrapper implements PurchaseType,
     @Override
     public void setPrimaryKey(long primaryKey) {
         _purchaseType.setPrimaryKey(primaryKey);
-    }
-
-    /**
-    * Returns the uuid of this purchase type.
-    *
-    * @return the uuid of this purchase type
-    */
-    @Override
-    public java.lang.String getUuid() {
-        return _purchaseType.getUuid();
-    }
-
-    /**
-    * Sets the uuid of this purchase type.
-    *
-    * @param uuid the uuid of this purchase type
-    */
-    @Override
-    public void setUuid(java.lang.String uuid) {
-        _purchaseType.setUuid(uuid);
     }
 
     /**

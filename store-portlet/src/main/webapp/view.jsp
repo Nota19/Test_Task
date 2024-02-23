@@ -3,23 +3,28 @@
 
 <aui:button-row cssClass="main-menu">
 
-    <portlet:renderURL var="showAllEmployeeFunc">
+    <portlet:renderURL var="Employees">
         <portlet:param name="mvcPath" value="/jsp/Employee/menu.jsp"/>
     </portlet:renderURL>
 
-    <aui:button onClick="<%= showAllEmployeeFunc %>" value="Employee"></aui:button>
+    <aui:button onClick="<%= Employees %>" value="Employees"></aui:button>
 
-    <portlet:renderURL var="showAllElectronicsFunc">
+    <portlet:renderURL var="Electronics">
         <portlet:param name="mvcPath" value="/jsp/Electronics/menu.jsp"/>
     </portlet:renderURL>
 
-    <aui:button onClick="<%= showAllElectronicsFunc %>" value="Electronics"></aui:button>
+    <aui:button onClick="<%= Electronics %>" value="Electronics"></aui:button>
 
-     <portlet:renderURL var="showAllPurchaseFunc">
+    <portlet:renderURL var="Purchases">
         <portlet:param name="mvcPath" value="/jsp/Purchase/menu.jsp"/>
-     </portlet:renderURL>
+    </portlet:renderURL>
 
-     <aui:button onClick="<%= showAllPurchaseFunc %>" value="Purchase"></aui:button>
+    <aui:button onClick="<%= Purchases %>" value="Purchases"></aui:button>
 
+    <portlet:renderURL var="Tasks">
+        <portlet:param name="mvcPath" value="/jsp/Tasks/menu.jsp"/>
+    </portlet:renderURL>
+
+    <aui:button onClick="<%= Tasks %>" value="Tasks"></aui:button>
 
 </aui:button-row>

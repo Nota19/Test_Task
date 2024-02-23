@@ -5,7 +5,7 @@ import ru.hmel.service.PositionTypeServiceUtil;
 import java.util.Arrays;
 
 /**
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @generated
  */
 public class PositionTypeServiceClpInvoker {

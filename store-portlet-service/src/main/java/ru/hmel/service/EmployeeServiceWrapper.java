@@ -5,7 +5,7 @@ import com.liferay.portal.service.ServiceWrapper;
 /**
  * Provides a wrapper for {@link EmployeeService}.
  *
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @see EmployeeService
  * @generated
  */

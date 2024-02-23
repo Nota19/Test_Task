@@ -20,7 +20,6 @@ import java.util.Map;
 
 public class ElectroTypeClp extends BaseModelImpl<ElectroType>
     implements ElectroType {
-    private String _uuid;
     private long _electro_type_id;
     private String _name;
     private BaseModel<?> _electroTypeRemoteModel;
@@ -63,7 +62,6 @@ public class ElectroTypeClp extends BaseModelImpl<ElectroType>
     public Map<String, Object> getModelAttributes() {
         Map<String, Object> attributes = new HashMap<String, Object>();
 
-        attributes.put("uuid", getUuid());
         attributes.put("electro_type_id", getElectro_type_id());
         attributes.put("name", getName());
 
@@ -72,12 +70,6 @@ public class ElectroTypeClp extends BaseModelImpl<ElectroType>
 
     @Override
     public void setModelAttributes(Map<String, Object> attributes) {
-        String uuid = (String) attributes.get("uuid");
-
-        if (uuid != null) {
-            setUuid(uuid);
-        }
-
         Long electro_type_id = (Long) attributes.get("electro_type_id");
 
         if (electro_type_id != null) {
@@ -88,28 +80,6 @@ public class ElectroTypeClp extends BaseModelImpl<ElectroType>
 
         if (name != null) {
             setName(name);
-        }
-    }
-
-    @Override
-    public String getUuid() {
-        return _uuid;
-    }
-
-    @Override
-    public void setUuid(String uuid) {
-        _uuid = uuid;
-
-        if (_electroTypeRemoteModel != null) {
-            try {
-                Class<?> clazz = _electroTypeRemoteModel.getClass();
-
-                Method method = clazz.getMethod("setUuid", String.class);
-
-                method.invoke(_electroTypeRemoteModel, uuid);
-            } catch (Exception e) {
-                throw new UnsupportedOperationException(e);
-            }
         }
     }
 
@@ -224,7 +194,6 @@ public class ElectroTypeClp extends BaseModelImpl<ElectroType>
     public Object clone() {
         ElectroTypeClp clone = new ElectroTypeClp();
 
-        clone.setUuid(getUuid());
         clone.setElectro_type_id(getElectro_type_id());
         clone.setName(getName());
 
@@ -276,11 +245,9 @@ public class ElectroTypeClp extends BaseModelImpl<ElectroType>
 
     @Override
     public String toString() {
-        StringBundler sb = new StringBundler(7);
+        StringBundler sb = new StringBundler(5);
 
-        sb.append("{uuid=");
-        sb.append(getUuid());
-        sb.append(", electro_type_id=");
+        sb.append("{electro_type_id=");
         sb.append(getElectro_type_id());
         sb.append(", name=");
         sb.append(getName());
@@ -291,16 +258,12 @@ public class ElectroTypeClp extends BaseModelImpl<ElectroType>
 
     @Override
     public String toXmlString() {
-        StringBundler sb = new StringBundler(13);
+        StringBundler sb = new StringBundler(10);
 
         sb.append("<model><model-name>");
         sb.append("ru.hmel.model.ElectroType");
         sb.append("</model-name>");
 
-        sb.append(
-            "<column><column-name>uuid</column-name><column-value><![CDATA[");
-        sb.append(getUuid());
-        sb.append("]]></column-value></column>");
         sb.append(
             "<column><column-name>electro_type_id</column-name><column-value><![CDATA[");
         sb.append(getElectro_type_id());

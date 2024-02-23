@@ -6,13 +6,13 @@
 <aui:form action="<%= updateEmployeeURL %>" name="<portlet:namespace />fm">
 
     <aui:fieldset>
-        <aui:input name="employee_id" value="<%=currentEmployee.getEmployee_id() %>" type="hidden" />
-        <aui:input name="lastname" value="<%=currentEmployee.getLastname() %>" />
-        <aui:input name="firstname" value="<%=currentEmployee.getFirstname() %>" />
-        <aui:input name="patronymic" value="<%=currentEmployee.getPatronymic() %>" />
-        <aui:input name="birthdate" value="<%=currentEmployee.getBirthdate() %>" />
-        <aui:input name="position" value="<%=currentEmployee.getPosition() %>" />
-        <aui:input name="gender" value="<%=currentEmployee.getGender() %>" />
+        <aui:input name="Employee id" value="<%=currentEmployee.getEmployee_id() %>" type="hidden" />
+        <aui:input name="Last name" value="<%=currentEmployee.getLastname() %>" />
+        <aui:input name="First name" value="<%=currentEmployee.getFirstname() %>" />
+        <aui:input name="Patronymic" value="<%=currentEmployee.getPatronymic() %>" />
+        <aui:input name="Birthdate" value="<%=currentEmployee.getBirthdate() %>" />
+        <aui:input name="Position" value="<%=currentEmployee.getPosition() %>" />
+        <aui:input name="Gender" value="<%=currentEmployee.getGender() %>" />
     </aui:fieldset>
 
     <aui:button-row>

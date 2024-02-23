@@ -8,7 +8,7 @@ import ru.hmel.model.Purchase;
 import ru.hmel.service.PurchaseLocalServiceUtil;
 
 /**
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @generated
  */
 public abstract class PurchaseActionableDynamicQuery

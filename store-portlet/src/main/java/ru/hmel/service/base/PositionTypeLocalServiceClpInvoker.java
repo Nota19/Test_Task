@@ -5,7 +5,7 @@ import ru.hmel.service.PositionTypeLocalServiceUtil;
 import java.util.Arrays;
 
 /**
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @generated
  */
 public class PositionTypeLocalServiceClpInvoker {

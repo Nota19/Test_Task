@@ -12,7 +12,7 @@ import java.util.Map;
  * This class is a wrapper for {@link Employee}.
  * </p>
  *
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @see Employee
  * @generated
  */
@@ -37,7 +37,6 @@ public class EmployeeWrapper implements Employee, ModelWrapper<Employee> {
     public Map<String, Object> getModelAttributes() {
         Map<String, Object> attributes = new HashMap<String, Object>();
 
-        attributes.put("uuid", getUuid());
         attributes.put("employee_id", getEmployee_id());
         attributes.put("lastname", getLastname());
         attributes.put("firstname", getFirstname());
@@ -51,12 +50,6 @@ public class EmployeeWrapper implements Employee, ModelWrapper<Employee> {
 
     @Override
     public void setModelAttributes(Map<String, Object> attributes) {
-        String uuid = (String) attributes.get("uuid");
-
-        if (uuid != null) {
-            setUuid(uuid);
-        }
-
         Long employee_id = (Long) attributes.get("employee_id");
 
         if (employee_id != null) {
@@ -118,26 +111,6 @@ public class EmployeeWrapper implements Employee, ModelWrapper<Employee> {
     @Override
     public void setPrimaryKey(long primaryKey) {
         _employee.setPrimaryKey(primaryKey);
-    }
-
-    /**
-    * Returns the uuid of this employee.
-    *
-    * @return the uuid of this employee
-    */
-    @Override
-    public java.lang.String getUuid() {
-        return _employee.getUuid();
-    }
-
-    /**
-    * Sets the uuid of this employee.
-    *
-    * @param uuid the uuid of this employee
-    */
-    @Override
-    public void setUuid(java.lang.String uuid) {
-        _employee.setUuid(uuid);
     }
 
     /**

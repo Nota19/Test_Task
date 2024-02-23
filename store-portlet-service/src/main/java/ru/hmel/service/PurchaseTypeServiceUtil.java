@@ -12,7 +12,7 @@ import com.liferay.portal.service.InvokableService;
  * checks based on the propagated JAAS credentials because this service can be
  * accessed remotely.
  *
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @see PurchaseTypeService
  * @see ru.hmel.service.base.PurchaseTypeServiceBaseImpl
  * @see ru.hmel.service.impl.PurchaseTypeServiceImpl

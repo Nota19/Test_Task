@@ -8,7 +8,7 @@ import ru.hmel.model.Electronics;
 import ru.hmel.service.ElectronicsLocalServiceUtil;
 
 /**
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @generated
  */
 public abstract class ElectronicsActionableDynamicQuery

@@ -8,7 +8,7 @@ import ru.hmel.model.Employee;
 import ru.hmel.service.EmployeeLocalServiceUtil;
 
 /**
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @generated
  */
 public abstract class EmployeeActionableDynamicQuery

@@ -8,12 +8,11 @@ import java.util.List;
 /**
  * This class is used by SOAP remote services, specifically {@link ru.hmel.service.http.PurchaseTypeServiceSoap}.
  *
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @see ru.hmel.service.http.PurchaseTypeServiceSoap
  * @generated
  */
 public class PurchaseTypeSoap implements Serializable {
-    private String _uuid;
     private long _purchase_type_id;
     private String _name;
 
@@ -23,7 +22,6 @@ public class PurchaseTypeSoap implements Serializable {
     public static PurchaseTypeSoap toSoapModel(PurchaseType model) {
         PurchaseTypeSoap soapModel = new PurchaseTypeSoap();
 
-        soapModel.setUuid(model.getUuid());
         soapModel.setPurchase_type_id(model.getPurchase_type_id());
         soapModel.setName(model.getName());
 
@@ -72,14 +70,6 @@ public class PurchaseTypeSoap implements Serializable {
 
     public void setPrimaryKey(long pk) {
         setPurchase_type_id(pk);
-    }
-
-    public String getUuid() {
-        return _uuid;
-    }
-
-    public void setUuid(String uuid) {
-        _uuid = uuid;
     }
 
     public long getPurchase_type_id() {

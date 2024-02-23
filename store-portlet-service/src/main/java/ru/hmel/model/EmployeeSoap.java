@@ -9,12 +9,11 @@ import java.util.List;
 /**
  * This class is used by SOAP remote services, specifically {@link ru.hmel.service.http.EmployeeServiceSoap}.
  *
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @see ru.hmel.service.http.EmployeeServiceSoap
  * @generated
  */
 public class EmployeeSoap implements Serializable {
-    private String _uuid;
     private long _employee_id;
     private String _lastname;
     private String _firstname;
@@ -29,7 +28,6 @@ public class EmployeeSoap implements Serializable {
     public static EmployeeSoap toSoapModel(Employee model) {
         EmployeeSoap soapModel = new EmployeeSoap();
 
-        soapModel.setUuid(model.getUuid());
         soapModel.setEmployee_id(model.getEmployee_id());
         soapModel.setLastname(model.getLastname());
         soapModel.setFirstname(model.getFirstname());
@@ -83,14 +81,6 @@ public class EmployeeSoap implements Serializable {
 
     public void setPrimaryKey(long pk) {
         setEmployee_id(pk);
-    }
-
-    public String getUuid() {
-        return _uuid;
-    }
-
-    public void setUuid(String uuid) {
-        _uuid = uuid;
     }
 
     public long getEmployee_id() {

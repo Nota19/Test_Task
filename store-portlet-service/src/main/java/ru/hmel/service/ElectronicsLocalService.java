@@ -16,7 +16,7 @@ import com.liferay.portal.service.PersistedModelLocalService;
  * credentials because this service can only be accessed from within the same
  * VM.
  *
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @see ElectronicsLocalServiceUtil
  * @see ru.hmel.service.base.ElectronicsLocalServiceBaseImpl
  * @see ru.hmel.service.impl.ElectronicsLocalServiceImpl

@@ -1,27 +1,37 @@
 <%@include file="../init.jsp"%>
 
+<portlet:actionURL var="uploadURL" name="uploadDocument"></portlet:actionURL>
+<b>Please Upload .csv file with Employees</b>
+
+<form action="<%=uploadURL%>" method="post" enctype="multipart/form-data">
+    <input type="file" name="uploadedFile">
+    <input type="Submit" name="Submit">
+</form>
+
+
 <portlet:renderURL var="addEmployee">
     <portlet:param name="mvcPath" value="/jsp/Employee/add.jsp"/>
 </portlet:renderURL>
 
 <aui:button onClick="<%= addEmployee %>" value="Add new Employee"/>
 
+
 <liferay-ui:search-container>
     <liferay-ui:search-container-results
-        results="<%=EmployeeLocalServiceUtil.getEmployees(searchContainer.getStart(), searchContainer.getEnd())%>"/>
+            results="<%=EmployeeLocalServiceUtil.getEmployees(searchContainer.getStart(), searchContainer.getEnd()) %>"/>
 
     <liferay-ui:search-container-row
-            className="ru.hmel.liferay.model.Employee" modelVar="Employee">
-        <liferay-ui:search-container-column-jsp path="/jsp/Employee/edit.jsp" align="left"/>
+            className="ru.hmel.model.Employee" modelVar="Employee">
+
+        <liferay-ui:search-container-column-jsp path="/jsp/Employee/buttons/edit.jsp" align="left"/>
+
         <liferay-ui:search-container-column-text property="employee_id" name="Employee id"/>
         <liferay-ui:search-container-column-text property="lastname" name="Last name"/>
         <liferay-ui:search-container-column-text property="firstname" name="First name"/>
         <liferay-ui:search-container-column-text property="patronymic" name="Patronymic"/>
-        <liferay-ui:search-container-column-text property="birthdate" name="Date of birth"/>
+        <liferay-ui:search-container-column-text property="birthdate" name="Birthdate"/>
         <liferay-ui:search-container-column-text property="position" name="Position"/>
         <liferay-ui:search-container-column-text property="gender" name="Gender"/>
-        <liferay-ui:search-container-column-jsp path=""/> //
-        
     </liferay-ui:search-container-row>
 
     <liferay-ui:search-iterator />

@@ -5,7 +5,7 @@ import com.liferay.portal.model.PersistedModel;
 /**
  * The extended model interface for the Employee service. Represents a row in the &quot;store_Employee&quot; database table, with each column mapped to a property of this class.
  *
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @see EmployeeModel
  * @see ru.hmel.model.impl.EmployeeImpl
  * @see ru.hmel.model.impl.EmployeeModelImpl

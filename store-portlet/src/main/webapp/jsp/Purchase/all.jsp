@@ -8,17 +8,18 @@
 
 <liferay-ui:search-container>
     <liferay-ui:search-container-results
-            results="<%=PurchaseLocalServiceUtil.getPurchase(searchContainer.getStart(), searchContainer.getEnd())%>"/>
+            results="<%=PurchaseLocalServiceUtil.getPurchases(searchContainer.getStart(), searchContainer.getEnd())%>"/>
 
     <liferay-ui:search-container-row
-            className="ru.hmel.liferay.model.Purchase" modelVar="Purchase">
+            className="ru.hmel.model.Purchase" modelVar="Purchase">
+
         <liferay-ui:search-container-column-jsp path="/jsp/Purchase/buttons/edit.jsp" align="left"/>
+
         <liferay-ui:search-container-column-text property="purchase_id" name="Purchase id"/>
         <liferay-ui:search-container-column-text property="electro_id" name="Electro id"/>
         <liferay-ui:search-container-column-text property="employee_id" name="Employee id"/>
         <liferay-ui:search-container-column-text property="purchaseDate" name="Purchase Date"/>
         <liferay-ui:search-container-column-text property="type" name="Type"/>
-        <liferay-ui:search-container-column-jsp path=""/>
 
     </liferay-ui:search-container-row>
 

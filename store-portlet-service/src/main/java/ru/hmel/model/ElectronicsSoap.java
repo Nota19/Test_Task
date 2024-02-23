@@ -8,12 +8,11 @@ import java.util.List;
 /**
  * This class is used by SOAP remote services, specifically {@link ru.hmel.service.http.ElectronicsServiceSoap}.
  *
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @see ru.hmel.service.http.ElectronicsServiceSoap
  * @generated
  */
 public class ElectronicsSoap implements Serializable {
-    private String _uuid;
     private long _electronics_id;
     private String _name;
     private long _etype;
@@ -29,7 +28,6 @@ public class ElectronicsSoap implements Serializable {
     public static ElectronicsSoap toSoapModel(Electronics model) {
         ElectronicsSoap soapModel = new ElectronicsSoap();
 
-        soapModel.setUuid(model.getUuid());
         soapModel.setElectronics_id(model.getElectronics_id());
         soapModel.setName(model.getName());
         soapModel.setEtype(model.getEtype());
@@ -84,14 +82,6 @@ public class ElectronicsSoap implements Serializable {
 
     public void setPrimaryKey(long pk) {
         setElectronics_id(pk);
-    }
-
-    public String getUuid() {
-        return _uuid;
-    }
-
-    public void setUuid(String uuid) {
-        _uuid = uuid;
     }
 
     public long getElectronics_id() {

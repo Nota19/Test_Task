@@ -11,7 +11,7 @@ import java.util.Map;
  * This class is a wrapper for {@link Electronics}.
  * </p>
  *
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @see Electronics
  * @generated
  */
@@ -37,7 +37,6 @@ public class ElectronicsWrapper implements Electronics,
     public Map<String, Object> getModelAttributes() {
         Map<String, Object> attributes = new HashMap<String, Object>();
 
-        attributes.put("uuid", getUuid());
         attributes.put("electronics_id", getElectronics_id());
         attributes.put("name", getName());
         attributes.put("etype", getEtype());
@@ -52,12 +51,6 @@ public class ElectronicsWrapper implements Electronics,
 
     @Override
     public void setModelAttributes(Map<String, Object> attributes) {
-        String uuid = (String) attributes.get("uuid");
-
-        if (uuid != null) {
-            setUuid(uuid);
-        }
-
         Long electronics_id = (Long) attributes.get("electronics_id");
 
         if (electronics_id != null) {
@@ -125,26 +118,6 @@ public class ElectronicsWrapper implements Electronics,
     @Override
     public void setPrimaryKey(long primaryKey) {
         _electronics.setPrimaryKey(primaryKey);
-    }
-
-    /**
-    * Returns the uuid of this electronics.
-    *
-    * @return the uuid of this electronics
-    */
-    @Override
-    public java.lang.String getUuid() {
-        return _electronics.getUuid();
-    }
-
-    /**
-    * Sets the uuid of this electronics.
-    *
-    * @param uuid the uuid of this electronics
-    */
-    @Override
-    public void setUuid(java.lang.String uuid) {
-        _electronics.setUuid(uuid);
     }
 
     /**

@@ -11,7 +11,7 @@ import java.util.Map;
  * This class is a wrapper for {@link PositionType}.
  * </p>
  *
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @see PositionType
  * @generated
  */
@@ -37,7 +37,6 @@ public class PositionTypeWrapper implements PositionType,
     public Map<String, Object> getModelAttributes() {
         Map<String, Object> attributes = new HashMap<String, Object>();
 
-        attributes.put("uuid", getUuid());
         attributes.put("position_id", getPosition_id());
         attributes.put("name", getName());
 
@@ -46,12 +45,6 @@ public class PositionTypeWrapper implements PositionType,
 
     @Override
     public void setModelAttributes(Map<String, Object> attributes) {
-        String uuid = (String) attributes.get("uuid");
-
-        if (uuid != null) {
-            setUuid(uuid);
-        }
-
         Long position_id = (Long) attributes.get("position_id");
 
         if (position_id != null) {
@@ -83,26 +76,6 @@ public class PositionTypeWrapper implements PositionType,
     @Override
     public void setPrimaryKey(long primaryKey) {
         _positionType.setPrimaryKey(primaryKey);
-    }
-
-    /**
-    * Returns the uuid of this position type.
-    *
-    * @return the uuid of this position type
-    */
-    @Override
-    public java.lang.String getUuid() {
-        return _positionType.getUuid();
-    }
-
-    /**
-    * Sets the uuid of this position type.
-    *
-    * @param uuid the uuid of this position type
-    */
-    @Override
-    public void setUuid(java.lang.String uuid) {
-        _positionType.setUuid(uuid);
     }
 
     /**

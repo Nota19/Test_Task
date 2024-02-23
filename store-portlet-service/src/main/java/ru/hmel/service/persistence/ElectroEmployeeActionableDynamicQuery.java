@@ -8,7 +8,7 @@ import ru.hmel.model.ElectroEmployee;
 import ru.hmel.service.ElectroEmployeeLocalServiceUtil;
 
 /**
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @generated
  */
 public abstract class ElectroEmployeeActionableDynamicQuery

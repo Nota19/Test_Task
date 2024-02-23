@@ -5,7 +5,7 @@ import com.liferay.portal.model.PersistedModel;
 /**
  * The extended model interface for the PositionType service. Represents a row in the &quot;store_PositionType&quot; database table, with each column mapped to a property of this class.
  *
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @see PositionTypeModel
  * @see ru.hmel.model.impl.PositionTypeImpl
  * @see ru.hmel.model.impl.PositionTypeModelImpl

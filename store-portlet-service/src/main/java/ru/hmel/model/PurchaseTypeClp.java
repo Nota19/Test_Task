@@ -20,7 +20,6 @@ import java.util.Map;
 
 public class PurchaseTypeClp extends BaseModelImpl<PurchaseType>
     implements PurchaseType {
-    private String _uuid;
     private long _purchase_type_id;
     private String _name;
     private BaseModel<?> _purchaseTypeRemoteModel;
@@ -63,7 +62,6 @@ public class PurchaseTypeClp extends BaseModelImpl<PurchaseType>
     public Map<String, Object> getModelAttributes() {
         Map<String, Object> attributes = new HashMap<String, Object>();
 
-        attributes.put("uuid", getUuid());
         attributes.put("purchase_type_id", getPurchase_type_id());
         attributes.put("name", getName());
 
@@ -72,12 +70,6 @@ public class PurchaseTypeClp extends BaseModelImpl<PurchaseType>
 
     @Override
     public void setModelAttributes(Map<String, Object> attributes) {
-        String uuid = (String) attributes.get("uuid");
-
-        if (uuid != null) {
-            setUuid(uuid);
-        }
-
         Long purchase_type_id = (Long) attributes.get("purchase_type_id");
 
         if (purchase_type_id != null) {
@@ -88,28 +80,6 @@ public class PurchaseTypeClp extends BaseModelImpl<PurchaseType>
 
         if (name != null) {
             setName(name);
-        }
-    }
-
-    @Override
-    public String getUuid() {
-        return _uuid;
-    }
-
-    @Override
-    public void setUuid(String uuid) {
-        _uuid = uuid;
-
-        if (_purchaseTypeRemoteModel != null) {
-            try {
-                Class<?> clazz = _purchaseTypeRemoteModel.getClass();
-
-                Method method = clazz.getMethod("setUuid", String.class);
-
-                method.invoke(_purchaseTypeRemoteModel, uuid);
-            } catch (Exception e) {
-                throw new UnsupportedOperationException(e);
-            }
         }
     }
 
@@ -225,7 +195,6 @@ public class PurchaseTypeClp extends BaseModelImpl<PurchaseType>
     public Object clone() {
         PurchaseTypeClp clone = new PurchaseTypeClp();
 
-        clone.setUuid(getUuid());
         clone.setPurchase_type_id(getPurchase_type_id());
         clone.setName(getName());
 
@@ -277,11 +246,9 @@ public class PurchaseTypeClp extends BaseModelImpl<PurchaseType>
 
     @Override
     public String toString() {
-        StringBundler sb = new StringBundler(7);
+        StringBundler sb = new StringBundler(5);
 
-        sb.append("{uuid=");
-        sb.append(getUuid());
-        sb.append(", purchase_type_id=");
+        sb.append("{purchase_type_id=");
         sb.append(getPurchase_type_id());
         sb.append(", name=");
         sb.append(getName());
@@ -292,16 +259,12 @@ public class PurchaseTypeClp extends BaseModelImpl<PurchaseType>
 
     @Override
     public String toXmlString() {
-        StringBundler sb = new StringBundler(13);
+        StringBundler sb = new StringBundler(10);
 
         sb.append("<model><model-name>");
         sb.append("ru.hmel.model.PurchaseType");
         sb.append("</model-name>");
 
-        sb.append(
-            "<column><column-name>uuid</column-name><column-value><![CDATA[");
-        sb.append(getUuid());
-        sb.append("]]></column-value></column>");
         sb.append(
             "<column><column-name>purchase_type_id</column-name><column-value><![CDATA[");
         sb.append(getPurchase_type_id());

@@ -5,7 +5,7 @@ import com.liferay.portal.service.ServiceWrapper;
 /**
  * Provides a wrapper for {@link PurchaseService}.
  *
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @see PurchaseService
  * @generated
  */

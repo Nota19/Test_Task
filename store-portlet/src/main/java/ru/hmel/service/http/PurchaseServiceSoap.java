@@ -34,7 +34,7 @@ package ru.hmel.service.http;
  * The SOAP utility is only generated for remote services.
  * </p>
  *
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @see PurchaseServiceHttp
  * @see ru.hmel.model.PurchaseSoap
  * @see ru.hmel.service.PurchaseServiceUtil

@@ -1,8 +1,9 @@
 <!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
 
 <service-builder package-path="ru.hmel">
+	<author>Hmel Max</author>
 	<namespace>store</namespace>
-	<entity name="Employee" uuid="true" local-service="true" remote-service="true">
+	<entity name="Employee" local-service="true" remote-service="true">
 		<!-- PK fields -->
 		<column name="employee_id" type="long" primary="true" />
 		<column name="lastname" type="String" />
@@ -17,7 +18,7 @@
 		</finder>
 	</entity>
 
-	<entity name="Electronics" uuid="true" local-service="true" remote-service="true">
+	<entity name="Electronics" local-service="true" remote-service="true">
 		<column name="electronics_id" type="long" primary="true" />
 		<column name="name" type="String" />
 		<column name="etype" type="long" />
@@ -33,7 +34,7 @@
 	</entity>
 
 
-	<entity name="Purchase" uuid="true" local-service="true" remote-service="true">
+	<entity name="Purchase" local-service="true" remote-service="true">
 		<column name="purchase_id" type="long" primary="true"/>
 		<column name="electro_id" type="long" />
 		<column name="employee_id" type="long" />
@@ -53,29 +54,27 @@
 		</finder>
 	</entity>
 
-	<entity name="PositionType" uuid="true" local-service="true" remote-service="true">
+	<entity name="PositionType" local-service="true" remote-service="true">
 		<column name="position_id" type="long" primary="true" />
 		<column name="name" type="String" />
 	</entity>
 
-	<entity name="ElectroType" uuid="true" local-service="true" remote-service="true" >
+	<entity name="ElectroType" local-service="true" remote-service="true" >
 		<column name="electro_type_id" type="long" primary="true" />
 		<column name="name" type="String" />
 	</entity>
 
-	<entity name="PurchaseType" uuid="true" local-service="true" remote-service="true" 	>
+	<entity name="PurchaseType"  local-service="true" remote-service="true" 	>
 		<column name="purchase_type_id" type="long" primary="true" />
 		<column name="name" type="String" />
 	</entity>
 
-	<entity name="ElectroEmployee" uuid="true" local-service="true" remote-service="true" >
+	<entity name="ElectroEmployee" local-service="true" remote-service="true" >
 		<column name="electro_employee_id" type="long" primary="true" />
 		<column name="etype" type="long" />
 
 		<finder name="electro_type_id" return-type="Collection">
 			<finder-column name="etype" />
 		</finder>
-		<reference package-path="com.liferay.portlet.asset" entity="AssetEntry" />
-		<reference package-path="com.liferay.portlet.asset" entity="AssetTag" />
 	</entity>
 </service-builder>

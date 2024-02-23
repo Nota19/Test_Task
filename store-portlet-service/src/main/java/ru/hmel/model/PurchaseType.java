@@ -5,7 +5,7 @@ import com.liferay.portal.model.PersistedModel;
 /**
  * The extended model interface for the PurchaseType service. Represents a row in the &quot;store_PurchaseType&quot; database table, with each column mapped to a property of this class.
  *
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @see PurchaseTypeModel
  * @see ru.hmel.model.impl.PurchaseTypeImpl
  * @see ru.hmel.model.impl.PurchaseTypeModelImpl

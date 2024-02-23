@@ -6,19 +6,23 @@
 
 <portlet:actionURL name="addEmployee" var="addEmployeeURL"/>
 
+<portlet:renderURL var="backViewURL">
+    <portlet:param name="mvcPath" value="/jsp/Employee/all.jsp"/>
+</portlet:renderURL>
+
 <aui:form action="<%= addEmployeeURL %>" name="<portlet:namespace />fm">
     <aui:fieldset>
-        <aui:input name="employee_id"/>
-        <aui:input name="lastname"/>
-        <aui:input name="firstname"/>
-        <aui:input name="patronymic"/>
-        <aui:input name="birthdate"/>
-        <aui:input name="position"/>
-        <aui:input name="gender"/>
+        <aui:input name="First name"/>
+        <aui:input name="Last name"/>
+        <aui:input name="Patronymic"/>
+        <aui:input name="Birthdate"/>
+        <aui:input name="Position"/>
+        <aui:input name="Gender"/>
     </aui:fieldset>
 
     <aui:button-row>
-        <aui:button type="submit"/>
-        <aui:button type="cancel" onClick="<%= addEmployeeURL %>"/>
+        <aui:button type="submit" onClick="<%= addEmployeeURL %>"/>
+        <aui:button type="cancel" onClick="<%= backViewURL %>"/>
     </aui:button-row>
+
 </aui:form>

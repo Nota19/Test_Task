@@ -1,7 +1,6 @@
 package ru.hmel.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
-import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.model.CacheModel;
 
 import ru.hmel.model.Purchase;
@@ -16,12 +15,11 @@ import java.util.Date;
 /**
  * The cache model class for representing Purchase in entity cache.
  *
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @see Purchase
  * @generated
  */
 public class PurchaseCacheModel implements CacheModel<Purchase>, Externalizable {
-    public String uuid;
     public long purchase_id;
     public long electro_id;
     public long employee_id;
@@ -30,11 +28,9 @@ public class PurchaseCacheModel implements CacheModel<Purchase>, Externalizable 
 
     @Override
     public String toString() {
-        StringBundler sb = new StringBundler(13);
+        StringBundler sb = new StringBundler(11);
 
-        sb.append("{uuid=");
-        sb.append(uuid);
-        sb.append(", purchase_id=");
+        sb.append("{purchase_id=");
         sb.append(purchase_id);
         sb.append(", electro_id=");
         sb.append(electro_id);
@@ -52,12 +48,6 @@ public class PurchaseCacheModel implements CacheModel<Purchase>, Externalizable 
     @Override
     public Purchase toEntityModel() {
         PurchaseImpl purchaseImpl = new PurchaseImpl();
-
-        if (uuid == null) {
-            purchaseImpl.setUuid(StringPool.BLANK);
-        } else {
-            purchaseImpl.setUuid(uuid);
-        }
 
         purchaseImpl.setPurchase_id(purchase_id);
         purchaseImpl.setElectro_id(electro_id);
@@ -78,7 +68,6 @@ public class PurchaseCacheModel implements CacheModel<Purchase>, Externalizable 
 
     @Override
     public void readExternal(ObjectInput objectInput) throws IOException {
-        uuid = objectInput.readUTF();
         purchase_id = objectInput.readLong();
         electro_id = objectInput.readLong();
         employee_id = objectInput.readLong();
@@ -89,12 +78,6 @@ public class PurchaseCacheModel implements CacheModel<Purchase>, Externalizable 
     @Override
     public void writeExternal(ObjectOutput objectOutput)
         throws IOException {
-        if (uuid == null) {
-            objectOutput.writeUTF(StringPool.BLANK);
-        } else {
-            objectOutput.writeUTF(uuid);
-        }
-
         objectOutput.writeLong(purchase_id);
         objectOutput.writeLong(electro_id);
         objectOutput.writeLong(employee_id);

@@ -20,7 +20,6 @@ import java.util.Map;
 
 
 public class EmployeeClp extends BaseModelImpl<Employee> implements Employee {
-    private String _uuid;
     private long _employee_id;
     private String _lastname;
     private String _firstname;
@@ -68,7 +67,6 @@ public class EmployeeClp extends BaseModelImpl<Employee> implements Employee {
     public Map<String, Object> getModelAttributes() {
         Map<String, Object> attributes = new HashMap<String, Object>();
 
-        attributes.put("uuid", getUuid());
         attributes.put("employee_id", getEmployee_id());
         attributes.put("lastname", getLastname());
         attributes.put("firstname", getFirstname());
@@ -82,12 +80,6 @@ public class EmployeeClp extends BaseModelImpl<Employee> implements Employee {
 
     @Override
     public void setModelAttributes(Map<String, Object> attributes) {
-        String uuid = (String) attributes.get("uuid");
-
-        if (uuid != null) {
-            setUuid(uuid);
-        }
-
         Long employee_id = (Long) attributes.get("employee_id");
 
         if (employee_id != null) {
@@ -128,28 +120,6 @@ public class EmployeeClp extends BaseModelImpl<Employee> implements Employee {
 
         if (gender != null) {
             setGender(gender);
-        }
-    }
-
-    @Override
-    public String getUuid() {
-        return _uuid;
-    }
-
-    @Override
-    public void setUuid(String uuid) {
-        _uuid = uuid;
-
-        if (_employeeRemoteModel != null) {
-            try {
-                Class<?> clazz = _employeeRemoteModel.getClass();
-
-                Method method = clazz.getMethod("setUuid", String.class);
-
-                method.invoke(_employeeRemoteModel, uuid);
-            } catch (Exception e) {
-                throw new UnsupportedOperationException(e);
-            }
         }
     }
 
@@ -379,7 +349,6 @@ public class EmployeeClp extends BaseModelImpl<Employee> implements Employee {
     public Object clone() {
         EmployeeClp clone = new EmployeeClp();
 
-        clone.setUuid(getUuid());
         clone.setEmployee_id(getEmployee_id());
         clone.setLastname(getLastname());
         clone.setFirstname(getFirstname());
@@ -436,11 +405,9 @@ public class EmployeeClp extends BaseModelImpl<Employee> implements Employee {
 
     @Override
     public String toString() {
-        StringBundler sb = new StringBundler(17);
+        StringBundler sb = new StringBundler(15);
 
-        sb.append("{uuid=");
-        sb.append(getUuid());
-        sb.append(", employee_id=");
+        sb.append("{employee_id=");
         sb.append(getEmployee_id());
         sb.append(", lastname=");
         sb.append(getLastname());
@@ -461,16 +428,12 @@ public class EmployeeClp extends BaseModelImpl<Employee> implements Employee {
 
     @Override
     public String toXmlString() {
-        StringBundler sb = new StringBundler(28);
+        StringBundler sb = new StringBundler(25);
 
         sb.append("<model><model-name>");
         sb.append("ru.hmel.model.Employee");
         sb.append("</model-name>");
 
-        sb.append(
-            "<column><column-name>uuid</column-name><column-value><![CDATA[");
-        sb.append(getUuid());
-        sb.append("]]></column-value></column>");
         sb.append(
             "<column><column-name>employee_id</column-name><column-value><![CDATA[");
         sb.append(getEmployee_id());

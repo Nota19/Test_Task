@@ -11,7 +11,7 @@ import java.util.Map;
  * This class is a wrapper for {@link ElectroType}.
  * </p>
  *
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @see ElectroType
  * @generated
  */
@@ -37,7 +37,6 @@ public class ElectroTypeWrapper implements ElectroType,
     public Map<String, Object> getModelAttributes() {
         Map<String, Object> attributes = new HashMap<String, Object>();
 
-        attributes.put("uuid", getUuid());
         attributes.put("electro_type_id", getElectro_type_id());
         attributes.put("name", getName());
 
@@ -46,12 +45,6 @@ public class ElectroTypeWrapper implements ElectroType,
 
     @Override
     public void setModelAttributes(Map<String, Object> attributes) {
-        String uuid = (String) attributes.get("uuid");
-
-        if (uuid != null) {
-            setUuid(uuid);
-        }
-
         Long electro_type_id = (Long) attributes.get("electro_type_id");
 
         if (electro_type_id != null) {
@@ -83,26 +76,6 @@ public class ElectroTypeWrapper implements ElectroType,
     @Override
     public void setPrimaryKey(long primaryKey) {
         _electroType.setPrimaryKey(primaryKey);
-    }
-
-    /**
-    * Returns the uuid of this electro type.
-    *
-    * @return the uuid of this electro type
-    */
-    @Override
-    public java.lang.String getUuid() {
-        return _electroType.getUuid();
-    }
-
-    /**
-    * Sets the uuid of this electro type.
-    *
-    * @param uuid the uuid of this electro type
-    */
-    @Override
-    public void setUuid(java.lang.String uuid) {
-        _electroType.setUuid(uuid);
     }
 
     /**

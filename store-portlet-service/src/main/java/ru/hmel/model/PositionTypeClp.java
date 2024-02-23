@@ -20,7 +20,6 @@ import java.util.Map;
 
 public class PositionTypeClp extends BaseModelImpl<PositionType>
     implements PositionType {
-    private String _uuid;
     private long _position_id;
     private String _name;
     private BaseModel<?> _positionTypeRemoteModel;
@@ -63,7 +62,6 @@ public class PositionTypeClp extends BaseModelImpl<PositionType>
     public Map<String, Object> getModelAttributes() {
         Map<String, Object> attributes = new HashMap<String, Object>();
 
-        attributes.put("uuid", getUuid());
         attributes.put("position_id", getPosition_id());
         attributes.put("name", getName());
 
@@ -72,12 +70,6 @@ public class PositionTypeClp extends BaseModelImpl<PositionType>
 
     @Override
     public void setModelAttributes(Map<String, Object> attributes) {
-        String uuid = (String) attributes.get("uuid");
-
-        if (uuid != null) {
-            setUuid(uuid);
-        }
-
         Long position_id = (Long) attributes.get("position_id");
 
         if (position_id != null) {
@@ -88,28 +80,6 @@ public class PositionTypeClp extends BaseModelImpl<PositionType>
 
         if (name != null) {
             setName(name);
-        }
-    }
-
-    @Override
-    public String getUuid() {
-        return _uuid;
-    }
-
-    @Override
-    public void setUuid(String uuid) {
-        _uuid = uuid;
-
-        if (_positionTypeRemoteModel != null) {
-            try {
-                Class<?> clazz = _positionTypeRemoteModel.getClass();
-
-                Method method = clazz.getMethod("setUuid", String.class);
-
-                method.invoke(_positionTypeRemoteModel, uuid);
-            } catch (Exception e) {
-                throw new UnsupportedOperationException(e);
-            }
         }
     }
 
@@ -224,7 +194,6 @@ public class PositionTypeClp extends BaseModelImpl<PositionType>
     public Object clone() {
         PositionTypeClp clone = new PositionTypeClp();
 
-        clone.setUuid(getUuid());
         clone.setPosition_id(getPosition_id());
         clone.setName(getName());
 
@@ -276,11 +245,9 @@ public class PositionTypeClp extends BaseModelImpl<PositionType>
 
     @Override
     public String toString() {
-        StringBundler sb = new StringBundler(7);
+        StringBundler sb = new StringBundler(5);
 
-        sb.append("{uuid=");
-        sb.append(getUuid());
-        sb.append(", position_id=");
+        sb.append("{position_id=");
         sb.append(getPosition_id());
         sb.append(", name=");
         sb.append(getName());
@@ -291,16 +258,12 @@ public class PositionTypeClp extends BaseModelImpl<PositionType>
 
     @Override
     public String toXmlString() {
-        StringBundler sb = new StringBundler(13);
+        StringBundler sb = new StringBundler(10);
 
         sb.append("<model><model-name>");
         sb.append("ru.hmel.model.PositionType");
         sb.append("</model-name>");
 
-        sb.append(
-            "<column><column-name>uuid</column-name><column-value><![CDATA[");
-        sb.append(getUuid());
-        sb.append("]]></column-value></column>");
         sb.append(
             "<column><column-name>position_id</column-name><column-value><![CDATA[");
         sb.append(getPosition_id());

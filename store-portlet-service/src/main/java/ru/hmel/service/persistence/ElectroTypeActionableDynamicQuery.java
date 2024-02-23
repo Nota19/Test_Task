@@ -8,7 +8,7 @@ import ru.hmel.model.ElectroType;
 import ru.hmel.service.ElectroTypeLocalServiceUtil;
 
 /**
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @generated
  */
 public abstract class ElectroTypeActionableDynamicQuery

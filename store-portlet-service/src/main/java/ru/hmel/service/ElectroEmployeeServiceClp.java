@@ -3,7 +3,7 @@ package ru.hmel.service;
 import com.liferay.portal.service.InvokableService;
 
 /**
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @generated
  */
 public class ElectroEmployeeServiceClp implements ElectroEmployeeService {

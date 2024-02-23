@@ -5,7 +5,7 @@ import ru.hmel.service.ElectronicsLocalServiceUtil;
 import java.util.Arrays;
 
 /**
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @generated
  */
 public class ElectronicsLocalServiceClpInvoker {

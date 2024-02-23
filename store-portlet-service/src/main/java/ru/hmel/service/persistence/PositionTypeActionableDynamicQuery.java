@@ -8,7 +8,7 @@ import ru.hmel.model.PositionType;
 import ru.hmel.service.PositionTypeLocalServiceUtil;
 
 /**
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @generated
  */
 public abstract class PositionTypeActionableDynamicQuery

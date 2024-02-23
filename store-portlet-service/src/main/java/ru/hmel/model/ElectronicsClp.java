@@ -20,7 +20,6 @@ import java.util.Map;
 
 public class ElectronicsClp extends BaseModelImpl<Electronics>
     implements Electronics {
-    private String _uuid;
     private long _electronics_id;
     private String _name;
     private long _etype;
@@ -69,7 +68,6 @@ public class ElectronicsClp extends BaseModelImpl<Electronics>
     public Map<String, Object> getModelAttributes() {
         Map<String, Object> attributes = new HashMap<String, Object>();
 
-        attributes.put("uuid", getUuid());
         attributes.put("electronics_id", getElectronics_id());
         attributes.put("name", getName());
         attributes.put("etype", getEtype());
@@ -84,12 +82,6 @@ public class ElectronicsClp extends BaseModelImpl<Electronics>
 
     @Override
     public void setModelAttributes(Map<String, Object> attributes) {
-        String uuid = (String) attributes.get("uuid");
-
-        if (uuid != null) {
-            setUuid(uuid);
-        }
-
         Long electronics_id = (Long) attributes.get("electronics_id");
 
         if (electronics_id != null) {
@@ -136,28 +128,6 @@ public class ElectronicsClp extends BaseModelImpl<Electronics>
 
         if (description != null) {
             setDescription(description);
-        }
-    }
-
-    @Override
-    public String getUuid() {
-        return _uuid;
-    }
-
-    @Override
-    public void setUuid(String uuid) {
-        _uuid = uuid;
-
-        if (_electronicsRemoteModel != null) {
-            try {
-                Class<?> clazz = _electronicsRemoteModel.getClass();
-
-                Method method = clazz.getMethod("setUuid", String.class);
-
-                method.invoke(_electronicsRemoteModel, uuid);
-            } catch (Exception e) {
-                throw new UnsupportedOperationException(e);
-            }
         }
     }
 
@@ -414,7 +384,6 @@ public class ElectronicsClp extends BaseModelImpl<Electronics>
     public Object clone() {
         ElectronicsClp clone = new ElectronicsClp();
 
-        clone.setUuid(getUuid());
         clone.setElectronics_id(getElectronics_id());
         clone.setName(getName());
         clone.setEtype(getEtype());
@@ -472,11 +441,9 @@ public class ElectronicsClp extends BaseModelImpl<Electronics>
 
     @Override
     public String toString() {
-        StringBundler sb = new StringBundler(19);
+        StringBundler sb = new StringBundler(17);
 
-        sb.append("{uuid=");
-        sb.append(getUuid());
-        sb.append(", electronics_id=");
+        sb.append("{electronics_id=");
         sb.append(getElectronics_id());
         sb.append(", name=");
         sb.append(getName());
@@ -499,16 +466,12 @@ public class ElectronicsClp extends BaseModelImpl<Electronics>
 
     @Override
     public String toXmlString() {
-        StringBundler sb = new StringBundler(31);
+        StringBundler sb = new StringBundler(28);
 
         sb.append("<model><model-name>");
         sb.append("ru.hmel.model.Electronics");
         sb.append("</model-name>");
 
-        sb.append(
-            "<column><column-name>uuid</column-name><column-value><![CDATA[");
-        sb.append(getUuid());
-        sb.append("]]></column-value></column>");
         sb.append(
             "<column><column-name>electronics_id</column-name><column-value><![CDATA[");
         sb.append(getElectronics_id());

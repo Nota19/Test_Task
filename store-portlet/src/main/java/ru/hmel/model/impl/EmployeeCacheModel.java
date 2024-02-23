@@ -16,12 +16,11 @@ import java.util.Date;
 /**
  * The cache model class for representing Employee in entity cache.
  *
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @see Employee
  * @generated
  */
 public class EmployeeCacheModel implements CacheModel<Employee>, Externalizable {
-    public String uuid;
     public long employee_id;
     public String lastname;
     public String firstname;
@@ -32,11 +31,9 @@ public class EmployeeCacheModel implements CacheModel<Employee>, Externalizable 
 
     @Override
     public String toString() {
-        StringBundler sb = new StringBundler(17);
+        StringBundler sb = new StringBundler(15);
 
-        sb.append("{uuid=");
-        sb.append(uuid);
-        sb.append(", employee_id=");
+        sb.append("{employee_id=");
         sb.append(employee_id);
         sb.append(", lastname=");
         sb.append(lastname);
@@ -58,12 +55,6 @@ public class EmployeeCacheModel implements CacheModel<Employee>, Externalizable 
     @Override
     public Employee toEntityModel() {
         EmployeeImpl employeeImpl = new EmployeeImpl();
-
-        if (uuid == null) {
-            employeeImpl.setUuid(StringPool.BLANK);
-        } else {
-            employeeImpl.setUuid(uuid);
-        }
 
         employeeImpl.setEmployee_id(employee_id);
 
@@ -101,7 +92,6 @@ public class EmployeeCacheModel implements CacheModel<Employee>, Externalizable 
 
     @Override
     public void readExternal(ObjectInput objectInput) throws IOException {
-        uuid = objectInput.readUTF();
         employee_id = objectInput.readLong();
         lastname = objectInput.readUTF();
         firstname = objectInput.readUTF();
@@ -114,12 +104,6 @@ public class EmployeeCacheModel implements CacheModel<Employee>, Externalizable 
     @Override
     public void writeExternal(ObjectOutput objectOutput)
         throws IOException {
-        if (uuid == null) {
-            objectOutput.writeUTF(StringPool.BLANK);
-        } else {
-            objectOutput.writeUTF(uuid);
-        }
-
         objectOutput.writeLong(employee_id);
 
         if (lastname == null) {

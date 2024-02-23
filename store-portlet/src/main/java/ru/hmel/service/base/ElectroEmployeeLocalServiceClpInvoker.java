@@ -5,7 +5,7 @@ import ru.hmel.service.ElectroEmployeeLocalServiceUtil;
 import java.util.Arrays;
 
 /**
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @generated
  */
 public class ElectroEmployeeLocalServiceClpInvoker {
@@ -41,10 +41,10 @@ public class ElectroEmployeeLocalServiceClpInvoker {
     private String[] _methodParameterTypes14;
     private String _methodName15;
     private String[] _methodParameterTypes15;
-    private String _methodName82;
-    private String[] _methodParameterTypes82;
-    private String _methodName83;
-    private String[] _methodParameterTypes83;
+    private String _methodName70;
+    private String[] _methodParameterTypes70;
+    private String _methodName71;
+    private String[] _methodParameterTypes71;
 
     public ElectroEmployeeLocalServiceClpInvoker() {
         _methodName0 = "addElectroEmployee";
@@ -123,13 +123,13 @@ public class ElectroEmployeeLocalServiceClpInvoker {
 
         _methodParameterTypes15 = new String[] { "ru.hmel.model.ElectroEmployee" };
 
-        _methodName82 = "getBeanIdentifier";
+        _methodName70 = "getBeanIdentifier";
 
-        _methodParameterTypes82 = new String[] {  };
+        _methodParameterTypes70 = new String[] {  };
 
-        _methodName83 = "setBeanIdentifier";
+        _methodName71 = "setBeanIdentifier";
 
-        _methodParameterTypes83 = new String[] { "java.lang.String" };
+        _methodParameterTypes71 = new String[] { "java.lang.String" };
     }
 
     public Object invokeMethod(String name, String[] parameterTypes,
@@ -221,13 +221,13 @@ public class ElectroEmployeeLocalServiceClpInvoker {
             return ElectroEmployeeLocalServiceUtil.updateElectroEmployee((ru.hmel.model.ElectroEmployee) arguments[0]);
         }
 
-        if (_methodName82.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes82, parameterTypes)) {
+        if (_methodName70.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes70, parameterTypes)) {
             return ElectroEmployeeLocalServiceUtil.getBeanIdentifier();
         }
 
-        if (_methodName83.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes83, parameterTypes)) {
+        if (_methodName71.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes71, parameterTypes)) {
             ElectroEmployeeLocalServiceUtil.setBeanIdentifier((java.lang.String) arguments[0]);
 
             return null;

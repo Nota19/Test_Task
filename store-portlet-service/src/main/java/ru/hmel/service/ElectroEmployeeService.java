@@ -14,7 +14,7 @@ import com.liferay.portal.service.InvokableService;
  * service are expected to have security checks based on the propagated JAAS
  * credentials because this service can be accessed remotely.
  *
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @see ElectroEmployeeServiceUtil
  * @see ru.hmel.service.base.ElectroEmployeeServiceBaseImpl
  * @see ru.hmel.service.impl.ElectroEmployeeServiceImpl

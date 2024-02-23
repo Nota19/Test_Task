@@ -14,23 +14,20 @@ import java.io.ObjectOutput;
 /**
  * The cache model class for representing PurchaseType in entity cache.
  *
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @see PurchaseType
  * @generated
  */
 public class PurchaseTypeCacheModel implements CacheModel<PurchaseType>,
     Externalizable {
-    public String uuid;
     public long purchase_type_id;
     public String name;
 
     @Override
     public String toString() {
-        StringBundler sb = new StringBundler(7);
+        StringBundler sb = new StringBundler(5);
 
-        sb.append("{uuid=");
-        sb.append(uuid);
-        sb.append(", purchase_type_id=");
+        sb.append("{purchase_type_id=");
         sb.append(purchase_type_id);
         sb.append(", name=");
         sb.append(name);
@@ -42,12 +39,6 @@ public class PurchaseTypeCacheModel implements CacheModel<PurchaseType>,
     @Override
     public PurchaseType toEntityModel() {
         PurchaseTypeImpl purchaseTypeImpl = new PurchaseTypeImpl();
-
-        if (uuid == null) {
-            purchaseTypeImpl.setUuid(StringPool.BLANK);
-        } else {
-            purchaseTypeImpl.setUuid(uuid);
-        }
 
         purchaseTypeImpl.setPurchase_type_id(purchase_type_id);
 
@@ -64,7 +55,6 @@ public class PurchaseTypeCacheModel implements CacheModel<PurchaseType>,
 
     @Override
     public void readExternal(ObjectInput objectInput) throws IOException {
-        uuid = objectInput.readUTF();
         purchase_type_id = objectInput.readLong();
         name = objectInput.readUTF();
     }
@@ -72,12 +62,6 @@ public class PurchaseTypeCacheModel implements CacheModel<PurchaseType>,
     @Override
     public void writeExternal(ObjectOutput objectOutput)
         throws IOException {
-        if (uuid == null) {
-            objectOutput.writeUTF(StringPool.BLANK);
-        } else {
-            objectOutput.writeUTF(uuid);
-        }
-
         objectOutput.writeLong(purchase_type_id);
 
         if (name == null) {

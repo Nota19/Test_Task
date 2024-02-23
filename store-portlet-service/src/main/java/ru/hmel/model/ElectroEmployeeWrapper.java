@@ -11,7 +11,7 @@ import java.util.Map;
  * This class is a wrapper for {@link ElectroEmployee}.
  * </p>
  *
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @see ElectroEmployee
  * @generated
  */
@@ -37,7 +37,6 @@ public class ElectroEmployeeWrapper implements ElectroEmployee,
     public Map<String, Object> getModelAttributes() {
         Map<String, Object> attributes = new HashMap<String, Object>();
 
-        attributes.put("uuid", getUuid());
         attributes.put("electro_employee_id", getElectro_employee_id());
         attributes.put("etype", getEtype());
 
@@ -46,12 +45,6 @@ public class ElectroEmployeeWrapper implements ElectroEmployee,
 
     @Override
     public void setModelAttributes(Map<String, Object> attributes) {
-        String uuid = (String) attributes.get("uuid");
-
-        if (uuid != null) {
-            setUuid(uuid);
-        }
-
         Long electro_employee_id = (Long) attributes.get("electro_employee_id");
 
         if (electro_employee_id != null) {
@@ -83,26 +76,6 @@ public class ElectroEmployeeWrapper implements ElectroEmployee,
     @Override
     public void setPrimaryKey(long primaryKey) {
         _electroEmployee.setPrimaryKey(primaryKey);
-    }
-
-    /**
-    * Returns the uuid of this electro employee.
-    *
-    * @return the uuid of this electro employee
-    */
-    @Override
-    public java.lang.String getUuid() {
-        return _electroEmployee.getUuid();
-    }
-
-    /**
-    * Sets the uuid of this electro employee.
-    *
-    * @param uuid the uuid of this electro employee
-    */
-    @Override
-    public void setUuid(java.lang.String uuid) {
-        _electroEmployee.setUuid(uuid);
     }
 
     /**

@@ -8,12 +8,11 @@ import java.util.List;
 /**
  * This class is used by SOAP remote services, specifically {@link ru.hmel.service.http.PositionTypeServiceSoap}.
  *
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @see ru.hmel.service.http.PositionTypeServiceSoap
  * @generated
  */
 public class PositionTypeSoap implements Serializable {
-    private String _uuid;
     private long _position_id;
     private String _name;
 
@@ -23,7 +22,6 @@ public class PositionTypeSoap implements Serializable {
     public static PositionTypeSoap toSoapModel(PositionType model) {
         PositionTypeSoap soapModel = new PositionTypeSoap();
 
-        soapModel.setUuid(model.getUuid());
         soapModel.setPosition_id(model.getPosition_id());
         soapModel.setName(model.getName());
 
@@ -72,14 +70,6 @@ public class PositionTypeSoap implements Serializable {
 
     public void setPrimaryKey(long pk) {
         setPosition_id(pk);
-    }
-
-    public String getUuid() {
-        return _uuid;
-    }
-
-    public void setUuid(String uuid) {
-        _uuid = uuid;
     }
 
     public long getPosition_id() {
