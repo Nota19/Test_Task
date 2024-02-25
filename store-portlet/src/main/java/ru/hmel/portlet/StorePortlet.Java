@@ -217,7 +217,6 @@ public class StorePortlet extends MVCPortlet {
 
 
         //long sum = 0;
-        //(if etype == (fridge || kettle || water heater)
         //long [] prices = ParamUtil.getParameterValues(request, "price");
 
 
