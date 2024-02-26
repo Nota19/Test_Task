@@ -7,7 +7,7 @@ package ru.hmel.model.impl;
  * Helper methods and all application logic should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link ru.hmel.model.PurchaseType} interface.
  * </p>
  *
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  */
 public class PurchaseTypeImpl extends PurchaseTypeBaseImpl {
     /*

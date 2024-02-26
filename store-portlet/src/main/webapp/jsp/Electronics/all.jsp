@@ -1,4 +1,4 @@
-.<%@include file="../init.jsp"%>
+<%@include file="../init.jsp"%>
 
 <portlet:actionURL var="uploadURL" name="uploadDocument"></portlet:actionURL>
 <b>Please Upload .csv file with Employees</b>

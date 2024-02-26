@@ -12,7 +12,7 @@ import ru.hmel.service.base.ElectronicsLocalServiceBaseImpl;
  * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
  * </p>
  *
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  * @see ru.hmel.service.base.ElectronicsLocalServiceBaseImpl
  * @see ru.hmel.service.ElectronicsLocalServiceUtil
  */

@@ -17,7 +17,7 @@ package ru.hmel;
 import com.liferay.portal.NoSuchModelException;
 
 /**
- * @author Brian Wing Shun Chan
+ * @author Hmel Max
  */
 public class NoSuchElectronicsException extends NoSuchModelException {
 

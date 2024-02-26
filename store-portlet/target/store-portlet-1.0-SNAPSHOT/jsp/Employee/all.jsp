@@ -3,10 +3,10 @@
 <portlet:actionURL var="uploadURL" name="uploadDocument"></portlet:actionURL>
 <b>Please Upload .csv file with Employees</b>
 
-<form action="<%=uploadURL%>" method="post" enctype="multipart/form-data">
-    <input type="file" name="uploadedFile">
-    <input type="Submit" name="Submit">
-</form>
+    <form action="<%=uploadURL%>" method="post" enctype="multipart/form-data">
+        <input type="file" name="uploadedFile">
+        <input type="Submit" name="Submit">
+    </form>
 
 
 <portlet:renderURL var="addEmployee">
@@ -18,7 +18,7 @@
 
 <liferay-ui:search-container>
     <liferay-ui:search-container-results
-            results="<%=EmployeeLocalServiceUtil.getEmployees(searchContainer.getStart(), searchContainer.getEnd()) %>"/>
+        results="<%=EmployeeLocalServiceUtil.getEmployees(searchContainer.getStart(), searchContainer.getEnd()) %>"/>
 
     <liferay-ui:search-container-row
             className="ru.hmel.model.Employee" modelVar="Employee">

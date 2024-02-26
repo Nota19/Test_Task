@@ -15,11 +15,11 @@
 
     <aui:button onClick="<%= Electronics %>" value="Electronics"></aui:button>
 
-    <portlet:renderURL var="Purchases">
+     <portlet:renderURL var="Purchases">
         <portlet:param name="mvcPath" value="/jsp/Purchase/menu.jsp"/>
-    </portlet:renderURL>
+     </portlet:renderURL>
 
-    <aui:button onClick="<%= Purchases %>" value="Purchases"></aui:button>
+     <aui:button onClick="<%= Purchases %>" value="Purchases"></aui:button>
 
     <portlet:renderURL var="Tasks">
         <portlet:param name="mvcPath" value="/jsp/Tasks/menu.jsp"/>

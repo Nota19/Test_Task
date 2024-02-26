@@ -1,8 +1,13 @@
 package ru.hmel.portlet;
 
+import com.liferay.portal.kernel.dao.orm.Criterion;
+import com.liferay.portal.kernel.dao.orm.DynamicQuery;
+import com.liferay.portal.kernel.dao.orm.DynamicQueryFactoryUtil;
+import com.liferay.portal.kernel.dao.orm.RestrictionsFactoryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.util.ParamUtil;
+import com.liferay.portal.kernel.util.PortalClassLoaderUtil;
 import com.liferay.util.bridges.mvc.MVCPortlet;
 
 import javax.portlet.ActionRequest;
@@ -194,6 +199,10 @@ public class StorePortlet extends MVCPortlet {
     // 1. Best smartphone sales employee
     public void bestEmployee(ActionRequest request, ActionResponse response) throws SystemException {
 
+        DynamicQuery dynamicQuery = DynamicQueryFactoryUtil.forClass(Electronics.class, PortalClassLoaderUtil.getClassLoader());
+
+        Criterion criterion = null;
+
         List<Employee> employess =  EmployeeLocalServiceUtil.getEmployees(0,-1);
         List<Purchase> purchases =  PurchaseLocalServiceUtil.getPurchases(0, -1);
 
@@ -203,6 +212,11 @@ public class StorePortlet extends MVCPortlet {
             for (int j = 0; j < purchases.size(); j++) {
                 if (employess.get(i).getEmployee_id() == purchases.get(i).getEmployee_id()) {
 
+                    criterion = RestrictionsFactoryUtil.eq("Etype", "3");
+                    criterion = RestrictionsFactoryUtil.and(criterion, RestrictionsFactoryUtil.lt("Price", new Long(1000000)));
+                    dynamicQuery.add(criterion);
+
+                    List<Electronics> electronicsList = ElectronicsLocalServiceUtil.dynamicQuery(dynamicQuery);
                 }
 
             }
@@ -215,9 +229,14 @@ public class StorePortlet extends MVCPortlet {
     // 2. The amount of money from the number of sales (refrigerators, teapot, boiler)
     public void AmountOfMoney(ActionRequest request, ActionResponse response) throws SystemException {
 
+        DynamicQuery dynamicQuery = DynamicQueryFactoryUtil.forClass(Electronics.class, PortalClassLoaderUtil.getClassLoader());
 
-        //long sum = 0;
-        //long [] prices = ParamUtil.getParameterValues(request, "price");
+        Criterion criterion = null;
+        criterion = RestrictionsFactoryUtil.eq("Etype", "9");
+        criterion = RestrictionsFactoryUtil.or(criterion, RestrictionsFactoryUtil.eq("Etype", "6"));
+        criterion = RestrictionsFactoryUtil.or(criterion, RestrictionsFactoryUtil.eq("Etype", "11"));
+
+        criterion = RestrictionsFactoryUtil.and(criterion, RestrictionsFactoryUtil.eq("Price", new Long()));
 
 
 
