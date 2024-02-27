@@ -1,14 +1,5 @@
 <%@include file="../init.jsp"%>
 
-<portlet:actionURL var="uploadURL" name="uploadDocument"></portlet:actionURL>
-<b>Please Upload .csv file with Employees</b>
-
-    <form action="<%=uploadURL%>" method="post" enctype="multipart/form-data">
-        <input type="file" name="uploadedFile">
-        <input type="Submit" name="Submit">
-    </form>
-
-
 <portlet:renderURL var="addEmployee">
     <portlet:param name="mvcPath" value="/jsp/Employee/add.jsp"/>
 </portlet:renderURL>

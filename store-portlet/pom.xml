@@ -31,6 +31,14 @@
 					<apiBaseDir>${basedir}/../store-portlet-service</apiBaseDir>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>7</source>
+					<target>7</target>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 	<dependencies>
@@ -38,6 +46,11 @@
 			<groupId>ru.hmel</groupId>
 			<artifactId>store-portlet-service</artifactId>
 			<version>${pom.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.opencsv</groupId>
+			<artifactId>opencsv</artifactId>
+			<version>5.7.1</version>
 		</dependency>
 		<dependency>
 			<groupId>com.liferay.portal</groupId>
