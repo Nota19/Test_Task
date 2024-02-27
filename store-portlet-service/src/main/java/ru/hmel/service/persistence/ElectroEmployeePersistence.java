@@ -128,7 +128,7 @@ public interface ElectroEmployeePersistence extends BasePersistence<ElectroEmplo
     /**
     * Returns the electro employees before and after the current electro employee in the ordered set where etype = &#63;.
     *
-    * @param electro_employee_id the primary key of the current electro employee
+    * @param electroEmployeePK the primary key of the current electro employee
     * @param etype the etype
     * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
     * @return the previous, current, and next electro employee
@@ -136,7 +136,7 @@ public interface ElectroEmployeePersistence extends BasePersistence<ElectroEmplo
     * @throws SystemException if a system exception occurred
     */
     public ru.hmel.model.ElectroEmployee[] findByelectro_type_id_PrevAndNext(
-        long electro_employee_id, long etype,
+        ElectroEmployeePK electroEmployeePK, long etype,
         com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
         throws com.liferay.portal.kernel.exception.SystemException,
             ru.hmel.NoSuchElectroEmployeeException;
@@ -161,6 +161,144 @@ public interface ElectroEmployeePersistence extends BasePersistence<ElectroEmplo
         throws com.liferay.portal.kernel.exception.SystemException;
 
     /**
+    * Returns all the electro employees where electro_employee_id = &#63;.
+    *
+    * @param electro_employee_id the electro_employee_id
+    * @return the matching electro employees
+    * @throws SystemException if a system exception occurred
+    */
+    public java.util.List<ru.hmel.model.ElectroEmployee> findByemployee_id(
+        long electro_employee_id)
+        throws com.liferay.portal.kernel.exception.SystemException;
+
+    /**
+    * Returns a range of all the electro employees where electro_employee_id = &#63;.
+    *
+    * <p>
+    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link ru.hmel.model.impl.ElectroEmployeeModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+    * </p>
+    *
+    * @param electro_employee_id the electro_employee_id
+    * @param start the lower bound of the range of electro employees
+    * @param end the upper bound of the range of electro employees (not inclusive)
+    * @return the range of matching electro employees
+    * @throws SystemException if a system exception occurred
+    */
+    public java.util.List<ru.hmel.model.ElectroEmployee> findByemployee_id(
+        long electro_employee_id, int start, int end)
+        throws com.liferay.portal.kernel.exception.SystemException;
+
+    /**
+    * Returns an ordered range of all the electro employees where electro_employee_id = &#63;.
+    *
+    * <p>
+    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link ru.hmel.model.impl.ElectroEmployeeModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+    * </p>
+    *
+    * @param electro_employee_id the electro_employee_id
+    * @param start the lower bound of the range of electro employees
+    * @param end the upper bound of the range of electro employees (not inclusive)
+    * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+    * @return the ordered range of matching electro employees
+    * @throws SystemException if a system exception occurred
+    */
+    public java.util.List<ru.hmel.model.ElectroEmployee> findByemployee_id(
+        long electro_employee_id, int start, int end,
+        com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+        throws com.liferay.portal.kernel.exception.SystemException;
+
+    /**
+    * Returns the first electro employee in the ordered set where electro_employee_id = &#63;.
+    *
+    * @param electro_employee_id the electro_employee_id
+    * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+    * @return the first matching electro employee
+    * @throws ru.hmel.NoSuchElectroEmployeeException if a matching electro employee could not be found
+    * @throws SystemException if a system exception occurred
+    */
+    public ru.hmel.model.ElectroEmployee findByemployee_id_First(
+        long electro_employee_id,
+        com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+        throws com.liferay.portal.kernel.exception.SystemException,
+            ru.hmel.NoSuchElectroEmployeeException;
+
+    /**
+    * Returns the first electro employee in the ordered set where electro_employee_id = &#63;.
+    *
+    * @param electro_employee_id the electro_employee_id
+    * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+    * @return the first matching electro employee, or <code>null</code> if a matching electro employee could not be found
+    * @throws SystemException if a system exception occurred
+    */
+    public ru.hmel.model.ElectroEmployee fetchByemployee_id_First(
+        long electro_employee_id,
+        com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+        throws com.liferay.portal.kernel.exception.SystemException;
+
+    /**
+    * Returns the last electro employee in the ordered set where electro_employee_id = &#63;.
+    *
+    * @param electro_employee_id the electro_employee_id
+    * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+    * @return the last matching electro employee
+    * @throws ru.hmel.NoSuchElectroEmployeeException if a matching electro employee could not be found
+    * @throws SystemException if a system exception occurred
+    */
+    public ru.hmel.model.ElectroEmployee findByemployee_id_Last(
+        long electro_employee_id,
+        com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+        throws com.liferay.portal.kernel.exception.SystemException,
+            ru.hmel.NoSuchElectroEmployeeException;
+
+    /**
+    * Returns the last electro employee in the ordered set where electro_employee_id = &#63;.
+    *
+    * @param electro_employee_id the electro_employee_id
+    * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+    * @return the last matching electro employee, or <code>null</code> if a matching electro employee could not be found
+    * @throws SystemException if a system exception occurred
+    */
+    public ru.hmel.model.ElectroEmployee fetchByemployee_id_Last(
+        long electro_employee_id,
+        com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+        throws com.liferay.portal.kernel.exception.SystemException;
+
+    /**
+    * Returns the electro employees before and after the current electro employee in the ordered set where electro_employee_id = &#63;.
+    *
+    * @param electroEmployeePK the primary key of the current electro employee
+    * @param electro_employee_id the electro_employee_id
+    * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+    * @return the previous, current, and next electro employee
+    * @throws ru.hmel.NoSuchElectroEmployeeException if a electro employee with the primary key could not be found
+    * @throws SystemException if a system exception occurred
+    */
+    public ru.hmel.model.ElectroEmployee[] findByemployee_id_PrevAndNext(
+        ElectroEmployeePK electroEmployeePK, long electro_employee_id,
+        com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+        throws com.liferay.portal.kernel.exception.SystemException,
+            ru.hmel.NoSuchElectroEmployeeException;
+
+    /**
+    * Removes all the electro employees where electro_employee_id = &#63; from the database.
+    *
+    * @param electro_employee_id the electro_employee_id
+    * @throws SystemException if a system exception occurred
+    */
+    public void removeByemployee_id(long electro_employee_id)
+        throws com.liferay.portal.kernel.exception.SystemException;
+
+    /**
+    * Returns the number of electro employees where electro_employee_id = &#63;.
+    *
+    * @param electro_employee_id the electro_employee_id
+    * @return the number of matching electro employees
+    * @throws SystemException if a system exception occurred
+    */
+    public int countByemployee_id(long electro_employee_id)
+        throws com.liferay.portal.kernel.exception.SystemException;
+
+    /**
     * Caches the electro employee in the entity cache if it is enabled.
     *
     * @param electroEmployee the electro employee
@@ -178,20 +316,22 @@ public interface ElectroEmployeePersistence extends BasePersistence<ElectroEmplo
     /**
     * Creates a new electro employee with the primary key. Does not add the electro employee to the database.
     *
-    * @param electro_employee_id the primary key for the new electro employee
+    * @param electroEmployeePK the primary key for the new electro employee
     * @return the new electro employee
     */
-    public ru.hmel.model.ElectroEmployee create(long electro_employee_id);
+    public ru.hmel.model.ElectroEmployee create(
+        ElectroEmployeePK electroEmployeePK);
 
     /**
     * Removes the electro employee with the primary key from the database. Also notifies the appropriate model listeners.
     *
-    * @param electro_employee_id the primary key of the electro employee
+    * @param electroEmployeePK the primary key of the electro employee
     * @return the electro employee that was removed
     * @throws ru.hmel.NoSuchElectroEmployeeException if a electro employee with the primary key could not be found
     * @throws SystemException if a system exception occurred
     */
-    public ru.hmel.model.ElectroEmployee remove(long electro_employee_id)
+    public ru.hmel.model.ElectroEmployee remove(
+        ElectroEmployeePK electroEmployeePK)
         throws com.liferay.portal.kernel.exception.SystemException,
             ru.hmel.NoSuchElectroEmployeeException;
 
@@ -202,25 +342,25 @@ public interface ElectroEmployeePersistence extends BasePersistence<ElectroEmplo
     /**
     * Returns the electro employee with the primary key or throws a {@link ru.hmel.NoSuchElectroEmployeeException} if it could not be found.
     *
-    * @param electro_employee_id the primary key of the electro employee
+    * @param electroEmployeePK the primary key of the electro employee
     * @return the electro employee
     * @throws ru.hmel.NoSuchElectroEmployeeException if a electro employee with the primary key could not be found
     * @throws SystemException if a system exception occurred
     */
     public ru.hmel.model.ElectroEmployee findByPrimaryKey(
-        long electro_employee_id)
+        ElectroEmployeePK electroEmployeePK)
         throws com.liferay.portal.kernel.exception.SystemException,
             ru.hmel.NoSuchElectroEmployeeException;
 
     /**
     * Returns the electro employee with the primary key or returns <code>null</code> if it could not be found.
     *
-    * @param electro_employee_id the primary key of the electro employee
+    * @param electroEmployeePK the primary key of the electro employee
     * @return the electro employee, or <code>null</code> if a electro employee with the primary key could not be found
     * @throws SystemException if a system exception occurred
     */
     public ru.hmel.model.ElectroEmployee fetchByPrimaryKey(
-        long electro_employee_id)
+        ElectroEmployeePK electroEmployeePK)
         throws com.liferay.portal.kernel.exception.SystemException;
 
     /**

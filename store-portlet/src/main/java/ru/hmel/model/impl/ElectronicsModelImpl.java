@@ -58,7 +58,7 @@ public class ElectronicsModelImpl extends BaseModelImpl<Electronics>
             { "archive", Types.BOOLEAN },
             { "description", Types.VARCHAR }
         };
-    public static final String TABLE_SQL_CREATE = "create table store_Electronics (electronics_id LONG not null primary key,name VARCHAR(75) null,etype LONG,price LONG,count LONG,inStock BOOLEAN,archive BOOLEAN,description VARCHAR(75) null)";
+    public static final String TABLE_SQL_CREATE = "create table store_Electronics (electronics_id LONG not null primary key,name VARCHAR(255) null,etype LONG,price LONG,count LONG,inStock BOOLEAN,archive BOOLEAN,description VARCHAR(255) null)";
     public static final String TABLE_SQL_DROP = "drop table store_Electronics";
     public static final String ORDER_BY_JPQL = " ORDER BY electronics.electronics_id ASC";
     public static final String ORDER_BY_SQL = " ORDER BY store_Electronics.electronics_id ASC";

@@ -53,11 +53,15 @@ public class ElectroEmployeeLocalServiceClpInvoker {
 
         _methodName1 = "createElectroEmployee";
 
-        _methodParameterTypes1 = new String[] { "long" };
+        _methodParameterTypes1 = new String[] {
+                "ru.hmel.service.persistence.ElectroEmployeePK"
+            };
 
         _methodName2 = "deleteElectroEmployee";
 
-        _methodParameterTypes2 = new String[] { "long" };
+        _methodParameterTypes2 = new String[] {
+                "ru.hmel.service.persistence.ElectroEmployeePK"
+            };
 
         _methodName3 = "deleteElectroEmployee";
 
@@ -101,11 +105,15 @@ public class ElectroEmployeeLocalServiceClpInvoker {
 
         _methodName10 = "fetchElectroEmployee";
 
-        _methodParameterTypes10 = new String[] { "long" };
+        _methodParameterTypes10 = new String[] {
+                "ru.hmel.service.persistence.ElectroEmployeePK"
+            };
 
         _methodName11 = "getElectroEmployee";
 
-        _methodParameterTypes11 = new String[] { "long" };
+        _methodParameterTypes11 = new String[] {
+                "ru.hmel.service.persistence.ElectroEmployeePK"
+            };
 
         _methodName12 = "getPersistedModel";
 
@@ -141,12 +149,12 @@ public class ElectroEmployeeLocalServiceClpInvoker {
 
         if (_methodName1.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes1, parameterTypes)) {
-            return ElectroEmployeeLocalServiceUtil.createElectroEmployee(((Long) arguments[0]).longValue());
+            return ElectroEmployeeLocalServiceUtil.createElectroEmployee((ru.hmel.service.persistence.ElectroEmployeePK) arguments[0]);
         }
 
         if (_methodName2.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes2, parameterTypes)) {
-            return ElectroEmployeeLocalServiceUtil.deleteElectroEmployee(((Long) arguments[0]).longValue());
+            return ElectroEmployeeLocalServiceUtil.deleteElectroEmployee((ru.hmel.service.persistence.ElectroEmployeePK) arguments[0]);
         }
 
         if (_methodName3.equals(name) &&
@@ -192,12 +200,12 @@ public class ElectroEmployeeLocalServiceClpInvoker {
 
         if (_methodName10.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes10, parameterTypes)) {
-            return ElectroEmployeeLocalServiceUtil.fetchElectroEmployee(((Long) arguments[0]).longValue());
+            return ElectroEmployeeLocalServiceUtil.fetchElectroEmployee((ru.hmel.service.persistence.ElectroEmployeePK) arguments[0]);
         }
 
         if (_methodName11.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes11, parameterTypes)) {
-            return ElectroEmployeeLocalServiceUtil.getElectroEmployee(((Long) arguments[0]).longValue());
+            return ElectroEmployeeLocalServiceUtil.getElectroEmployee((ru.hmel.service.persistence.ElectroEmployeePK) arguments[0]);
         }
 
         if (_methodName12.equals(name) &&

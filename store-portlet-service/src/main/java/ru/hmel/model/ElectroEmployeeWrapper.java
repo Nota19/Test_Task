@@ -64,7 +64,7 @@ public class ElectroEmployeeWrapper implements ElectroEmployee,
     * @return the primary key of this electro employee
     */
     @Override
-    public long getPrimaryKey() {
+    public ru.hmel.service.persistence.ElectroEmployeePK getPrimaryKey() {
         return _electroEmployee.getPrimaryKey();
     }
 
@@ -74,7 +74,8 @@ public class ElectroEmployeeWrapper implements ElectroEmployee,
     * @param primaryKey the primary key of this electro employee
     */
     @Override
-    public void setPrimaryKey(long primaryKey) {
+    public void setPrimaryKey(
+        ru.hmel.service.persistence.ElectroEmployeePK primaryKey) {
         _electroEmployee.setPrimaryKey(primaryKey);
     }
 

@@ -1,5 +1,7 @@
 package ru.hmel.model;
 
+import ru.hmel.service.persistence.ElectroEmployeePK;
+
 import java.io.Serializable;
 
 import java.util.ArrayList;
@@ -66,12 +68,13 @@ public class ElectroEmployeeSoap implements Serializable {
         return soapModels.toArray(new ElectroEmployeeSoap[soapModels.size()]);
     }
 
-    public long getPrimaryKey() {
-        return _electro_employee_id;
+    public ElectroEmployeePK getPrimaryKey() {
+        return new ElectroEmployeePK(_electro_employee_id, _etype);
     }
 
-    public void setPrimaryKey(long pk) {
-        setElectro_employee_id(pk);
+    public void setPrimaryKey(ElectroEmployeePK pk) {
+        setElectro_employee_id(pk.electro_employee_id);
+        setEtype(pk.etype);
     }
 
     public long getElectro_employee_id() {

@@ -20,6 +20,7 @@ import com.liferay.portal.service.persistence.UserPersistence;
 import ru.hmel.model.ElectroEmployee;
 
 import ru.hmel.service.ElectroEmployeeLocalService;
+import ru.hmel.service.persistence.ElectroEmployeePK;
 import ru.hmel.service.persistence.ElectroEmployeePersistence;
 import ru.hmel.service.persistence.ElectroTypePersistence;
 import ru.hmel.service.persistence.ElectronicsPersistence;
@@ -130,27 +131,29 @@ public abstract class ElectroEmployeeLocalServiceBaseImpl
     /**
      * Creates a new electro employee with the primary key. Does not add the electro employee to the database.
      *
-     * @param electro_employee_id the primary key for the new electro employee
+     * @param electroEmployeePK the primary key for the new electro employee
      * @return the new electro employee
      */
     @Override
-    public ElectroEmployee createElectroEmployee(long electro_employee_id) {
-        return electroEmployeePersistence.create(electro_employee_id);
+    public ElectroEmployee createElectroEmployee(
+        ElectroEmployeePK electroEmployeePK) {
+        return electroEmployeePersistence.create(electroEmployeePK);
     }
 
     /**
      * Deletes the electro employee with the primary key from the database. Also notifies the appropriate model listeners.
      *
-     * @param electro_employee_id the primary key of the electro employee
+     * @param electroEmployeePK the primary key of the electro employee
      * @return the electro employee that was removed
      * @throws PortalException if a electro employee with the primary key could not be found
      * @throws SystemException if a system exception occurred
      */
     @Indexable(type = IndexableType.DELETE)
     @Override
-    public ElectroEmployee deleteElectroEmployee(long electro_employee_id)
+    public ElectroEmployee deleteElectroEmployee(
+        ElectroEmployeePK electroEmployeePK)
         throws PortalException, SystemException {
-        return electroEmployeePersistence.remove(electro_employee_id);
+        return electroEmployeePersistence.remove(electroEmployeePK);
     }
 
     /**
@@ -261,23 +264,24 @@ public abstract class ElectroEmployeeLocalServiceBaseImpl
     }
 
     @Override
-    public ElectroEmployee fetchElectroEmployee(long electro_employee_id)
-        throws SystemException {
-        return electroEmployeePersistence.fetchByPrimaryKey(electro_employee_id);
+    public ElectroEmployee fetchElectroEmployee(
+        ElectroEmployeePK electroEmployeePK) throws SystemException {
+        return electroEmployeePersistence.fetchByPrimaryKey(electroEmployeePK);
     }
 
     /**
      * Returns the electro employee with the primary key.
      *
-     * @param electro_employee_id the primary key of the electro employee
+     * @param electroEmployeePK the primary key of the electro employee
      * @return the electro employee
      * @throws PortalException if a electro employee with the primary key could not be found
      * @throws SystemException if a system exception occurred
      */
     @Override
-    public ElectroEmployee getElectroEmployee(long electro_employee_id)
+    public ElectroEmployee getElectroEmployee(
+        ElectroEmployeePK electroEmployeePK)
         throws PortalException, SystemException {
-        return electroEmployeePersistence.findByPrimaryKey(electro_employee_id);
+        return electroEmployeePersistence.findByPrimaryKey(electroEmployeePK);
     }
 
     @Override

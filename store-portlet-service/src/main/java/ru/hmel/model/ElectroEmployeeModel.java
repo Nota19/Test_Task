@@ -6,6 +6,8 @@ import com.liferay.portal.service.ServiceContext;
 
 import com.liferay.portlet.expando.model.ExpandoBridge;
 
+import ru.hmel.service.persistence.ElectroEmployeePK;
+
 import java.io.Serializable;
 
 /**
@@ -33,14 +35,14 @@ public interface ElectroEmployeeModel extends BaseModel<ElectroEmployee> {
      *
      * @return the primary key of this electro employee
      */
-    public long getPrimaryKey();
+    public ElectroEmployeePK getPrimaryKey();
 
     /**
      * Sets the primary key of this electro employee.
      *
      * @param primaryKey the primary key of this electro employee
      */
-    public void setPrimaryKey(long primaryKey);
+    public void setPrimaryKey(ElectroEmployeePK primaryKey);
 
     /**
      * Returns the electro_employee_id of this electro employee.

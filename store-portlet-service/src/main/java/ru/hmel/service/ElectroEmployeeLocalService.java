@@ -48,23 +48,23 @@ public interface ElectroEmployeeLocalService extends BaseLocalService,
     /**
     * Creates a new electro employee with the primary key. Does not add the electro employee to the database.
     *
-    * @param electro_employee_id the primary key for the new electro employee
+    * @param electroEmployeePK the primary key for the new electro employee
     * @return the new electro employee
     */
     public ru.hmel.model.ElectroEmployee createElectroEmployee(
-        long electro_employee_id);
+        ru.hmel.service.persistence.ElectroEmployeePK electroEmployeePK);
 
     /**
     * Deletes the electro employee with the primary key from the database. Also notifies the appropriate model listeners.
     *
-    * @param electro_employee_id the primary key of the electro employee
+    * @param electroEmployeePK the primary key of the electro employee
     * @return the electro employee that was removed
     * @throws PortalException if a electro employee with the primary key could not be found
     * @throws SystemException if a system exception occurred
     */
     @com.liferay.portal.kernel.search.Indexable(type = IndexableType.DELETE)
     public ru.hmel.model.ElectroEmployee deleteElectroEmployee(
-        long electro_employee_id)
+        ru.hmel.service.persistence.ElectroEmployeePK electroEmployeePK)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException;
 
@@ -159,20 +159,20 @@ public interface ElectroEmployeeLocalService extends BaseLocalService,
 
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public ru.hmel.model.ElectroEmployee fetchElectroEmployee(
-        long electro_employee_id)
+        ru.hmel.service.persistence.ElectroEmployeePK electroEmployeePK)
         throws com.liferay.portal.kernel.exception.SystemException;
 
     /**
     * Returns the electro employee with the primary key.
     *
-    * @param electro_employee_id the primary key of the electro employee
+    * @param electroEmployeePK the primary key of the electro employee
     * @return the electro employee
     * @throws PortalException if a electro employee with the primary key could not be found
     * @throws SystemException if a system exception occurred
     */
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public ru.hmel.model.ElectroEmployee getElectroEmployee(
-        long electro_employee_id)
+        ru.hmel.service.persistence.ElectroEmployeePK electroEmployeePK)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException;
 

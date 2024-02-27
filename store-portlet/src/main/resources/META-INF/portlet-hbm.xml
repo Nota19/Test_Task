@@ -11,10 +11,10 @@
 	<import class="ru.hmel.model.PurchaseType" />
 	<class name="ru.hmel.model.impl.ElectroEmployeeImpl" table="store_ElectroEmployee">
 		<cache usage="read-write" />
-		<id name="electro_employee_id" type="long">
-			<generator class="assigned" />
-		</id>
-		<property name="etype" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<composite-id name="primaryKey" class="ru.hmel.service.persistence.ElectroEmployeePK">
+			<key-property name="electro_employee_id" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="etype" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		</composite-id>
 	</class>
 	<class name="ru.hmel.model.impl.ElectronicsImpl" table="store_Electronics">
 		<cache usage="read-write" />

@@ -1,6 +1,7 @@
 create table store_ElectroEmployee (
-	electro_employee_id LONG not null primary key,
-	etype LONG
+	electro_employee_id LONG not null,
+	etype LONG not null,
+	primary key (electro_employee_id, etype)
 );
 
 create table store_ElectroType (
@@ -10,13 +11,13 @@ create table store_ElectroType (
 
 create table store_Electronics (
 	electronics_id LONG not null primary key,
-	name VARCHAR(75) null,
+	name VARCHAR(255) null,
 	etype LONG,
 	price LONG,
 	count LONG,
 	inStock BOOLEAN,
 	archive BOOLEAN,
-	description VARCHAR(75) null
+	description VARCHAR(255) null
 );
 
 create table store_Employee (

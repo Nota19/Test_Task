@@ -43,27 +43,27 @@ public class ElectroEmployeeLocalServiceUtil {
     /**
     * Creates a new electro employee with the primary key. Does not add the electro employee to the database.
     *
-    * @param electro_employee_id the primary key for the new electro employee
+    * @param electroEmployeePK the primary key for the new electro employee
     * @return the new electro employee
     */
     public static ru.hmel.model.ElectroEmployee createElectroEmployee(
-        long electro_employee_id) {
-        return getService().createElectroEmployee(electro_employee_id);
+        ru.hmel.service.persistence.ElectroEmployeePK electroEmployeePK) {
+        return getService().createElectroEmployee(electroEmployeePK);
     }
 
     /**
     * Deletes the electro employee with the primary key from the database. Also notifies the appropriate model listeners.
     *
-    * @param electro_employee_id the primary key of the electro employee
+    * @param electroEmployeePK the primary key of the electro employee
     * @return the electro employee that was removed
     * @throws PortalException if a electro employee with the primary key could not be found
     * @throws SystemException if a system exception occurred
     */
     public static ru.hmel.model.ElectroEmployee deleteElectroEmployee(
-        long electro_employee_id)
+        ru.hmel.service.persistence.ElectroEmployeePK electroEmployeePK)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException {
-        return getService().deleteElectroEmployee(electro_employee_id);
+        return getService().deleteElectroEmployee(electroEmployeePK);
     }
 
     /**
@@ -170,24 +170,24 @@ public class ElectroEmployeeLocalServiceUtil {
     }
 
     public static ru.hmel.model.ElectroEmployee fetchElectroEmployee(
-        long electro_employee_id)
+        ru.hmel.service.persistence.ElectroEmployeePK electroEmployeePK)
         throws com.liferay.portal.kernel.exception.SystemException {
-        return getService().fetchElectroEmployee(electro_employee_id);
+        return getService().fetchElectroEmployee(electroEmployeePK);
     }
 
     /**
     * Returns the electro employee with the primary key.
     *
-    * @param electro_employee_id the primary key of the electro employee
+    * @param electroEmployeePK the primary key of the electro employee
     * @return the electro employee
     * @throws PortalException if a electro employee with the primary key could not be found
     * @throws SystemException if a system exception occurred
     */
     public static ru.hmel.model.ElectroEmployee getElectroEmployee(
-        long electro_employee_id)
+        ru.hmel.service.persistence.ElectroEmployeePK electroEmployeePK)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException {
-        return getService().getElectroEmployee(electro_employee_id);
+        return getService().getElectroEmployee(electroEmployeePK);
     }
 
     public static com.liferay.portal.model.PersistedModel getPersistedModel(

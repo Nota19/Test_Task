@@ -9,6 +9,7 @@ import com.liferay.portal.model.impl.BaseModelImpl;
 
 import ru.hmel.service.ClpSerializer;
 import ru.hmel.service.ElectroEmployeeLocalServiceUtil;
+import ru.hmel.service.persistence.ElectroEmployeePK;
 
 import java.io.Serializable;
 
@@ -39,23 +40,24 @@ public class ElectroEmployeeClp extends BaseModelImpl<ElectroEmployee>
     }
 
     @Override
-    public long getPrimaryKey() {
-        return _electro_employee_id;
+    public ElectroEmployeePK getPrimaryKey() {
+        return new ElectroEmployeePK(_electro_employee_id, _etype);
     }
 
     @Override
-    public void setPrimaryKey(long primaryKey) {
-        setElectro_employee_id(primaryKey);
+    public void setPrimaryKey(ElectroEmployeePK primaryKey) {
+        setElectro_employee_id(primaryKey.electro_employee_id);
+        setEtype(primaryKey.etype);
     }
 
     @Override
     public Serializable getPrimaryKeyObj() {
-        return _electro_employee_id;
+        return new ElectroEmployeePK(_electro_employee_id, _etype);
     }
 
     @Override
     public void setPrimaryKeyObj(Serializable primaryKeyObj) {
-        setPrimaryKey(((Long) primaryKeyObj).longValue());
+        setPrimaryKey((ElectroEmployeePK) primaryKeyObj);
     }
 
     @Override
@@ -205,15 +207,9 @@ public class ElectroEmployeeClp extends BaseModelImpl<ElectroEmployee>
 
     @Override
     public int compareTo(ElectroEmployee electroEmployee) {
-        long primaryKey = electroEmployee.getPrimaryKey();
+        ElectroEmployeePK primaryKey = electroEmployee.getPrimaryKey();
 
-        if (getPrimaryKey() < primaryKey) {
-            return -1;
-        } else if (getPrimaryKey() > primaryKey) {
-            return 1;
-        } else {
-            return 0;
-        }
+        return getPrimaryKey().compareTo(primaryKey);
     }
 
     @Override
@@ -228,9 +224,9 @@ public class ElectroEmployeeClp extends BaseModelImpl<ElectroEmployee>
 
         ElectroEmployeeClp electroEmployee = (ElectroEmployeeClp) obj;
 
-        long primaryKey = electroEmployee.getPrimaryKey();
+        ElectroEmployeePK primaryKey = electroEmployee.getPrimaryKey();
 
-        if (getPrimaryKey() == primaryKey) {
+        if (getPrimaryKey().equals(primaryKey)) {
             return true;
         } else {
             return false;
@@ -243,7 +239,7 @@ public class ElectroEmployeeClp extends BaseModelImpl<ElectroEmployee>
 
     @Override
     public int hashCode() {
-        return (int) getPrimaryKey();
+        return getPrimaryKey().hashCode();
     }
 
     @Override

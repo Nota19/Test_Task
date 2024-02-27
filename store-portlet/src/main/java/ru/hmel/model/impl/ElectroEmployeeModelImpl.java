@@ -7,14 +7,12 @@ import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.model.CacheModel;
 import com.liferay.portal.model.impl.BaseModelImpl;
-import com.liferay.portal.service.ServiceContext;
-
-import com.liferay.portlet.expando.model.ExpandoBridge;
-import com.liferay.portlet.expando.util.ExpandoBridgeFactoryUtil;
 
 import ru.hmel.model.ElectroEmployee;
 import ru.hmel.model.ElectroEmployeeModel;
 import ru.hmel.model.ElectroEmployeeSoap;
+
+import ru.hmel.service.persistence.ElectroEmployeePK;
 
 import java.io.Serializable;
 
@@ -51,10 +49,10 @@ public class ElectroEmployeeModelImpl extends BaseModelImpl<ElectroEmployee>
             { "electro_employee_id", Types.BIGINT },
             { "etype", Types.BIGINT }
         };
-    public static final String TABLE_SQL_CREATE = "create table store_ElectroEmployee (electro_employee_id LONG not null primary key,etype LONG)";
+    public static final String TABLE_SQL_CREATE = "create table store_ElectroEmployee (electro_employee_id LONG not null,etype LONG not null,primary key (electro_employee_id, etype))";
     public static final String TABLE_SQL_DROP = "drop table store_ElectroEmployee";
-    public static final String ORDER_BY_JPQL = " ORDER BY electroEmployee.electro_employee_id ASC";
-    public static final String ORDER_BY_SQL = " ORDER BY store_ElectroEmployee.electro_employee_id ASC";
+    public static final String ORDER_BY_JPQL = " ORDER BY electroEmployee.id.electro_employee_id ASC, electroEmployee.id.etype ASC";
+    public static final String ORDER_BY_SQL = " ORDER BY store_ElectroEmployee.electro_employee_id ASC, store_ElectroEmployee.etype ASC";
     public static final String DATA_SOURCE = "liferayDataSource";
     public static final String SESSION_FACTORY = "liferaySessionFactory";
     public static final String TX_MANAGER = "liferayTransactionManager";
@@ -67,8 +65,8 @@ public class ElectroEmployeeModelImpl extends BaseModelImpl<ElectroEmployee>
     public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
                 "value.object.column.bitmask.enabled.ru.hmel.model.ElectroEmployee"),
             true);
-    public static long ETYPE_COLUMN_BITMASK = 1L;
-    public static long ELECTRO_EMPLOYEE_ID_COLUMN_BITMASK = 2L;
+    public static long ELECTRO_EMPLOYEE_ID_COLUMN_BITMASK = 1L;
+    public static long ETYPE_COLUMN_BITMASK = 2L;
     public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.liferay.util.service.ServiceProps.get(
                 "lock.expiration.time.ru.hmel.model.ElectroEmployee"));
     private static ClassLoader _classLoader = ElectroEmployee.class.getClassLoader();
@@ -76,6 +74,8 @@ public class ElectroEmployeeModelImpl extends BaseModelImpl<ElectroEmployee>
             ElectroEmployee.class
         };
     private long _electro_employee_id;
+    private long _originalElectro_employee_id;
+    private boolean _setOriginalElectro_employee_id;
     private long _etype;
     private long _originalEtype;
     private boolean _setOriginalEtype;
@@ -126,23 +126,24 @@ public class ElectroEmployeeModelImpl extends BaseModelImpl<ElectroEmployee>
     }
 
     @Override
-    public long getPrimaryKey() {
-        return _electro_employee_id;
+    public ElectroEmployeePK getPrimaryKey() {
+        return new ElectroEmployeePK(_electro_employee_id, _etype);
     }
 
     @Override
-    public void setPrimaryKey(long primaryKey) {
-        setElectro_employee_id(primaryKey);
+    public void setPrimaryKey(ElectroEmployeePK primaryKey) {
+        setElectro_employee_id(primaryKey.electro_employee_id);
+        setEtype(primaryKey.etype);
     }
 
     @Override
     public Serializable getPrimaryKeyObj() {
-        return _electro_employee_id;
+        return new ElectroEmployeePK(_electro_employee_id, _etype);
     }
 
     @Override
     public void setPrimaryKeyObj(Serializable primaryKeyObj) {
-        setPrimaryKey(((Long) primaryKeyObj).longValue());
+        setPrimaryKey((ElectroEmployeePK) primaryKeyObj);
     }
 
     @Override
@@ -188,7 +189,19 @@ public class ElectroEmployeeModelImpl extends BaseModelImpl<ElectroEmployee>
 
     @Override
     public void setElectro_employee_id(long electro_employee_id) {
+        _columnBitmask |= ELECTRO_EMPLOYEE_ID_COLUMN_BITMASK;
+
+        if (!_setOriginalElectro_employee_id) {
+            _setOriginalElectro_employee_id = true;
+
+            _originalElectro_employee_id = _electro_employee_id;
+        }
+
         _electro_employee_id = electro_employee_id;
+    }
+
+    public long getOriginalElectro_employee_id() {
+        return _originalElectro_employee_id;
     }
 
     @JSON
@@ -219,19 +232,6 @@ public class ElectroEmployeeModelImpl extends BaseModelImpl<ElectroEmployee>
     }
 
     @Override
-    public ExpandoBridge getExpandoBridge() {
-        return ExpandoBridgeFactoryUtil.getExpandoBridge(0,
-            ElectroEmployee.class.getName(), getPrimaryKey());
-    }
-
-    @Override
-    public void setExpandoBridgeAttributes(ServiceContext serviceContext) {
-        ExpandoBridge expandoBridge = getExpandoBridge();
-
-        expandoBridge.setAttributes(serviceContext);
-    }
-
-    @Override
     public ElectroEmployee toEscapedModel() {
         if (_escapedModel == null) {
             _escapedModel = (ElectroEmployee) ProxyUtil.newProxyInstance(_classLoader,
@@ -255,15 +255,9 @@ public class ElectroEmployeeModelImpl extends BaseModelImpl<ElectroEmployee>
 
     @Override
     public int compareTo(ElectroEmployee electroEmployee) {
-        long primaryKey = electroEmployee.getPrimaryKey();
+        ElectroEmployeePK primaryKey = electroEmployee.getPrimaryKey();
 
-        if (getPrimaryKey() < primaryKey) {
-            return -1;
-        } else if (getPrimaryKey() > primaryKey) {
-            return 1;
-        } else {
-            return 0;
-        }
+        return getPrimaryKey().compareTo(primaryKey);
     }
 
     @Override
@@ -278,9 +272,9 @@ public class ElectroEmployeeModelImpl extends BaseModelImpl<ElectroEmployee>
 
         ElectroEmployee electroEmployee = (ElectroEmployee) obj;
 
-        long primaryKey = electroEmployee.getPrimaryKey();
+        ElectroEmployeePK primaryKey = electroEmployee.getPrimaryKey();
 
-        if (getPrimaryKey() == primaryKey) {
+        if (getPrimaryKey().equals(primaryKey)) {
             return true;
         } else {
             return false;
@@ -289,12 +283,16 @@ public class ElectroEmployeeModelImpl extends BaseModelImpl<ElectroEmployee>
 
     @Override
     public int hashCode() {
-        return (int) getPrimaryKey();
+        return getPrimaryKey().hashCode();
     }
 
     @Override
     public void resetOriginalValues() {
         ElectroEmployeeModelImpl electroEmployeeModelImpl = this;
+
+        electroEmployeeModelImpl._originalElectro_employee_id = electroEmployeeModelImpl._electro_employee_id;
+
+        electroEmployeeModelImpl._setOriginalElectro_employee_id = false;
 
         electroEmployeeModelImpl._originalEtype = electroEmployeeModelImpl._etype;
 

@@ -1,3 +1,4 @@
+create index IX_862EF9A7 on store_ElectroEmployee (electro_employee_id);
 create index IX_AFB309AD on store_ElectroEmployee (etype);
 
 create index IX_487E06B0 on store_Electronics (etype);

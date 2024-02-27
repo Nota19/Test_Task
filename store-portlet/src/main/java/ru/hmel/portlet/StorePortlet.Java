@@ -11,21 +11,28 @@ import com.liferay.util.bridges.mvc.MVCPortlet;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 
+import com.opencsv.CSVParser;
+import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
+import com.opencsv.exceptions.CsvValidationException;
+import org.w3c.dom.ls.LSOutput;
 import ru.hmel.model.*;
 import ru.hmel.model.impl.*;
 import ru.hmel.service.*;
 import ru.hmel.util.CsvImporter;
 
+import java.text.ParseException;
 import java.util.*;
 
 public class StorePortlet extends MVCPortlet {
 
-    // Employees
     public void addEmployee(ActionRequest request, ActionResponse response) {
         Employee Employee = new EmployeeImpl();
         try {
@@ -176,7 +183,7 @@ public class StorePortlet extends MVCPortlet {
     }
 
 
-        // Purchase
+    // Purchase
     public void addPurchase(ActionRequest request, ActionResponse response) throws SystemException {
         try {
             Purchase Purchase = new PurchaseImpl();
@@ -255,75 +262,135 @@ public class StorePortlet extends MVCPortlet {
         }
     }
 
-    public void importElectroType(String[] electroTypeData, ActionResponse response) throws SystemException {
-        ElectroType ElectroType = new ElectroTypeImpl();
+    public void uploadElectroType(ActionRequest request, ActionResponse response) throws SystemException, IOException, CsvValidationException {
+        String[] values;
 
-        ElectroType.setElectro_type_id(Long.parseLong(electroTypeData[0]));
-        ElectroType.setName(electroTypeData[1]);
+        UploadPortletRequest uploadPortletRequest = PortalUtil.getUploadPortletRequest(request);
 
-        ElectroTypeLocalServiceUtil.addElectroType(ElectroType);
+        File file = uploadPortletRequest.getFile("uploadedFileElectroType");
+
+        InputStream stream = Files.newInputStream(file.toPath());
+
+        CSVReaderBuilder csvReaderBuilder = new CSVReaderBuilder(new InputStreamReader(stream, StandardCharsets.UTF_8));
+        csvReaderBuilder.withCSVParser(new CSVParserBuilder().withSeparator(';').build());
+
+        CSVReader csvReader = csvReaderBuilder.build();
+        int i = 0;
+        while ((values = csvReader.readNext()) != null) {
+            if (i != 0) {
+                ElectroType ElectroType = new ElectroTypeImpl();
+
+                ElectroType.setElectro_type_id(Long.parseLong(values[0]));
+                ElectroType.setName(values[1]);
+
+                ElectroTypeLocalServiceUtil.addElectroType(ElectroType);
+            }
+            i++;
+        }
     }
 
-    public void importPurchaseType(String[] purchaseTypeData, ActionResponse response) throws SystemException {
-        PurchaseType PurchaseType = new PurchaseTypeImpl();
+    public void uploadPurchaseType(ActionRequest request, ActionResponse response) throws SystemException, IOException, CsvValidationException {
+        String[] values;
 
-        PurchaseType.setPurchase_type_id(Long.parseLong(purchaseTypeData[0]));
-        PurchaseType.setName(purchaseTypeData[1]);
+        UploadPortletRequest uploadPortletRequest = PortalUtil.getUploadPortletRequest(request);
+        File file = uploadPortletRequest.getFile("uploadedFilePurchaseType");
 
-        PurchaseTypeLocalServiceUtil.addPurchaseType(PurchaseType);
+        InputStream stream = Files.newInputStream(file.toPath());
+        CSVReaderBuilder csvReaderBuilder = new CSVReaderBuilder(new InputStreamReader(stream, StandardCharsets.UTF_8));
+        csvReaderBuilder.withCSVParser(new CSVParserBuilder().withSeparator(';').build());
+
+        CSVReader csvReader = csvReaderBuilder.build();
+        int i = 0;
+        while ((values = csvReader.readNext()) != null) {
+            if (i != 0) {
+                PurchaseType PurchaseType = new PurchaseTypeImpl();
+
+                PurchaseType.setPurchase_type_id(Long.parseLong(values[0]));
+                PurchaseType.setName(values[1]);
+
+                PurchaseTypeLocalServiceUtil.addPurchaseType(PurchaseType);
+            }
+            i++;
+        }
+
     }
 
-    public void importPositionType(String[] positionTypeData, ActionResponse response) throws SystemException {
-        PositionType PositionType = new PositionTypeImpl();
+    public void uploadPositionType(ActionRequest request, ActionResponse response) throws SystemException, IOException, CsvValidationException {
+        String[] values;
 
-        PositionType.setPosition_id(Long.parseLong(positionTypeData[0]));
-        PositionType.setName(positionTypeData[1]);
+        UploadPortletRequest uploadPortletRequest = PortalUtil.getUploadPortletRequest(request);
+        File file = uploadPortletRequest.getFile("uploadedFilePositionType");
 
-        PositionTypeLocalServiceUtil.addPositionType(PositionType);
+        InputStream stream = Files.newInputStream(file.toPath());
+        CSVReaderBuilder csvReaderBuilder = new CSVReaderBuilder(new InputStreamReader(stream, StandardCharsets.UTF_8));
+        csvReaderBuilder.withCSVParser(new CSVParserBuilder().withSeparator(';').build());
+
+        CSVReader csvReader = csvReaderBuilder.build();
+        int i = 0;
+        while ((values = csvReader.readNext()) != null) {
+            if (i != 0) {
+                PositionType PositionType = new PositionTypeImpl();
+
+                PositionType.setPosition_id(Long.parseLong(values[0]));
+                PositionType.setName(values[1]);
+
+                PositionTypeLocalServiceUtil.addPositionType(PositionType);
+            }
+            i++;
+        }
     }
 
-    public void importElectroEmployee(String[] electroEmployeeData, ActionResponse response) throws SystemException {
-        ElectroEmployee ElectroEmployee = new ElectroEmployeeImpl();
+    public void uploadElectroEmployee(ActionRequest request, ActionResponse response) throws SystemException, IOException, CsvValidationException {
+        String[] values;
 
-        ElectroEmployee.setElectro_employee_id(Long.parseLong(electroEmployeeData[0]));
-        ElectroEmployee.setEtype(Long.parseLong(electroEmployeeData[1]));
+        UploadPortletRequest uploadPortletRequest = PortalUtil.getUploadPortletRequest(request);
+        File file = uploadPortletRequest.getFile("uploadedFiledElectroEmployee");
 
-        ElectroEmployeeLocalServiceUtil.addElectroEmployee(ElectroEmployee);
+        InputStream stream = Files.newInputStream(file.toPath());
+        CSVReaderBuilder csvReaderBuilder = new CSVReaderBuilder(new InputStreamReader(stream, StandardCharsets.UTF_8));
+        csvReaderBuilder.withCSVParser(new CSVParserBuilder().withSeparator(';').build());
 
+        CSVReader csvReader = csvReaderBuilder.build();
+        int i = 0;
+        while ((values = csvReader.readNext()) != null) {
+            if (i != 0) {
+                ElectroEmployee ElectroEmployee = new ElectroEmployeeImpl();
+
+                ElectroEmployee.setElectro_employee_id(Long.parseLong(values[0]));
+                ElectroEmployee.setEtype(Long.parseLong(values[1]));
+
+                ElectroEmployeeLocalServiceUtil.addElectroEmployee(ElectroEmployee);
+            }
+            i++;
+        }
     }
 
     // 1. Best smartphone sales employee
     public void calculateBestEmployee(ActionRequest request, ActionResponse response) throws SystemException, PortalException {
-        DynamicQuery PurchaseQuery = DynamicQueryFactoryUtil.forClass(Purchase.class, PortalClassLoaderUtil.getClassLoader());
-        DynamicQuery ElectronicsQuery = DynamicQueryFactoryUtil.forClass(Electronics.class, PortalClassLoaderUtil.getClassLoader());
-
-        List<Employee> employees =  EmployeeLocalServiceUtil.getEmployees(0,-1);
-
-        ElectronicsQuery.add(PropertyFactoryUtil.forName("etype").eq(3));
-        List<Electronics> electronics = ElectronicsLocalServiceUtil.dynamicQuery(ElectronicsQuery);
+        List<Employee> employees =  EmployeeLocalServiceUtil.getEmployees(-1,-1);
+        List<Purchase> purchases = PurchaseLocalServiceUtil.getPurchases(-1, -1);
+        List<Electronics> electronics = ElectronicsLocalServiceUtil.getElectronicses(-1, -1);
 
         HashMap<Long, Long> employeeAndTotalSales = new HashMap<>();
 
         for (Employee employee : employees) {
             long currentEmployeeId = employee.getEmployee_id();
             long smartPhonesSum = 0;
-
-            PurchaseQuery.add(PropertyFactoryUtil.forName("employee_id").eq(currentEmployeeId));
-            List<Purchase> purchases = PurchaseLocalServiceUtil.dynamicQuery(PurchaseQuery);
-
             for (Purchase purchase : purchases) {
-                for (Electronics electronic : electronics) {
-                    if ( purchase.getElectro_id() == electronic.getElectronics_id()
-                            && electronic.getPrice() <= 1000000) {
-                        smartPhonesSum += electronic.getPrice();
-                        employeeAndTotalSales.put(currentEmployeeId, smartPhonesSum);
+                if (currentEmployeeId == purchase.getEmployee_id()) {
+                    for (Electronics electronic : electronics) {
+                        if ( purchase.getElectro_id() == electronic.getElectronics_id()
+                                && electronic.getPrice() <= 1000000 && electronic.getEtype() == 3) {
+                            smartPhonesSum += electronic.getPrice();
+                            employeeAndTotalSales.put(currentEmployeeId, smartPhonesSum);
+                        }
                     }
                 }
             }
         }
 
         long bestEmployeeId = 0;
-        long max = 0;
+        Long max = 0L;
         for (Map.Entry<Long, Long> entry : employeeAndTotalSales.entrySet()) {
             Long employeeId = entry.getKey();
             Long sum = entry.getValue();
@@ -335,147 +402,107 @@ public class StorePortlet extends MVCPortlet {
         Employee bestEmployee = EmployeeLocalServiceUtil.getEmployee(bestEmployeeId);
 
         request.setAttribute("bestEmployee", bestEmployee);
+        request.setAttribute("bestEmployeeMax", max);
         response.setRenderParameter("jspPage", "/jsp/Tasks/task1.jsp");
     }
-//
+    //
     // 2. The amount of money from the number of sales (refrigerators, teapot, boiler)
     public void AmountOfMoney(ActionRequest request, ActionResponse response) throws SystemException {
-        List<Purchase> purchases = PurchaseLocalServiceUtil.getPurchases(0, -1);
+        List<Purchase> purchases = PurchaseLocalServiceUtil.getPurchases(-1, -1);
+        List<Electronics> electronics = ElectronicsLocalServiceUtil.getElectronicses(-1, -1);
 
-        DynamicQuery ElectronicsQuery = DynamicQueryFactoryUtil.forClass(Electronics.class, PortalClassLoaderUtil.getClassLoader());
-
-        Junction junction = RestrictionsFactoryUtil.conjunction();
-        junction.add(PropertyFactoryUtil.forName("etype").eq(6));
-        junction.add(PropertyFactoryUtil.forName("etype").eq(9));
-        junction.add(PropertyFactoryUtil.forName("etype").eq(11));
-
-        ElectronicsQuery.add(junction);
-        List<Electronics> electronics = ElectronicsLocalServiceUtil.dynamicQuery(ElectronicsQuery);
-
-        long sum = 0;
+        Long sum = 0L;
         for (Purchase purchase : purchases) {
             for (Electronics electronic : electronics) {
-                if (purchase.getElectro_id() == electronic.getElectronics_id()) {
-                    sum += electronic.getPrice();
+                if (purchase.getElectro_id() == electronic.getElectronics_id() &&
+                        (electronic.getEtype() == 6 || electronic.getEtype() == 9 || electronic.getEtype() == 11)) {
+                    sum = Long.sum(sum, electronic.getPrice());
                 }
             }
         }
         request.setAttribute("amountMoney", sum);
         response.setRenderParameter("jspPage", "/jsp/Tasks/task2.jsp");
-
     }
 
     // 3. List of Employees (cost of purchases) who sales TV,smartphones
     public void AllSalesEmployees(ActionRequest request, ActionResponse response) throws SystemException, PortalException {
-        DynamicQuery PurchaseQuery = DynamicQueryFactoryUtil.forClass(Purchase.class, PortalClassLoaderUtil.getClassLoader());
-        DynamicQuery ElectronicsQuery = DynamicQueryFactoryUtil.forClass(Electronics.class, PortalClassLoaderUtil.getClassLoader());
+        List<Employee> employees =  EmployeeLocalServiceUtil.getEmployees(-1,-1);
+        List<Purchase> purchases = PurchaseLocalServiceUtil.getPurchases(-1, -1);
+        List<Electronics> electronics = ElectronicsLocalServiceUtil.getElectronicses(-1, -1);
 
-        Junction junction = RestrictionsFactoryUtil.conjunction();
-        junction.add(PropertyFactoryUtil.forName("etype").eq(1));
-        junction.add(PropertyFactoryUtil.forName("etype").eq(3));
-
-        ElectronicsQuery.add(junction);
-        List<Electronics> electronics = ElectronicsLocalServiceUtil.dynamicQuery(ElectronicsQuery);
-
-        List<Employee> employees =  EmployeeLocalServiceUtil.getEmployees(0,-1);
         HashMap<Long, Long> employeeAndTotalPurchases = new HashMap<>();
 
         for (Employee employee : employees) {
             long currentEmployeeId = employee.getEmployee_id();
             long purchaseCount = 0;
 
-            PurchaseQuery.add(PropertyFactoryUtil.forName("employee_id").eq(currentEmployeeId));
-            List<Purchase> purchases = PurchaseLocalServiceUtil.dynamicQuery(PurchaseQuery);
-
             for (Purchase purchase : purchases) {
-                for (Electronics electronic : electronics) {
-                    if (purchase.getElectro_id() == electronic.getElectronics_id()) {
-                        purchaseCount++;
-                        employeeAndTotalPurchases.put(currentEmployeeId, purchaseCount);
+                if (currentEmployeeId == purchase.getEmployee_id()) {
+                    for (Electronics electronic : electronics) {
+                        if (purchase.getElectro_id() == electronic.getElectronics_id() &&
+                                (electronic.getEtype() == 1 || electronic.getEtype() == 3)) {
+                            purchaseCount++;
+                            employeeAndTotalPurchases.put(currentEmployeeId, purchaseCount);
+                        }
                     }
                 }
             }
         }
 
-        List<Map.Entry<Long, Long> > list =
-                new LinkedList<>(employeeAndTotalPurchases.entrySet());
+        List<Map.Entry<Long, Long>> list = new LinkedList<>(employeeAndTotalPurchases.entrySet());
 
         // Sort the list
-        Collections.sort(list, new Comparator<Map.Entry<Long, Long> >() {
-            public int compare(Map.Entry<Long, Long> o1, Map.Entry<Long, Long> o2)
-            {
-                return (o2.getValue()).compareTo(o1.getValue());
-            }
-        });
+        list.sort(Map.Entry.comparingByValue());
 
-        ArrayList <Employee> result = new ArrayList<Employee>();
+        ArrayList <Employee> result = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
             result.add(i, EmployeeLocalServiceUtil.getEmployee(list.get(i).getKey()));
         }
 
         request.setAttribute("allSalesEmployees", result);
         request.setAttribute("employeesPurchaseCount", list);
-        response.setRenderParameter("jspPage", "/jsp/Tasks/task3.jsp");
 
+        response.setRenderParameter("jspPage", "/jsp/Tasks/task3.jsp");
     }
 
+    public void uploadDocument(ActionRequest request, ActionResponse response) throws IOException, CsvValidationException, SystemException {
+        boolean checkHeader = false;
+        String[] values;
 
-    public void uploadDocument(ActionRequest request, ActionResponse response)  {
         UploadPortletRequest uploadPortletRequest = PortalUtil.getUploadPortletRequest(request);
-
-        String title = uploadPortletRequest.getFileName("uploadedFile");
         File file = uploadPortletRequest.getFile("uploadedFile");
 
-        try (CSVReader csvReader = new CSVReader(new FileReader(file));) {
-            boolean checkHeader = false;
-            String[] values;
+        InputStream stream = Files.newInputStream(file.toPath());
+        CSVReaderBuilder csvReaderBuilder = new CSVReaderBuilder(new InputStreamReader(stream, StandardCharsets.UTF_8));
+        csvReaderBuilder.withCSVParser(new CSVParserBuilder().withSeparator(';').build());
 
-            CsvImporter.Entity entity = CsvImporter.Entity.UNKNOWN;
-            while ((values = csvReader.readNext()) != null) {
-                if (!checkHeader) {
-                    entity = CsvImporter.checkDataHeaders(values);
-                    checkHeader = true;
-                } else {
-                    // check headers
-                    switch (entity) {
-                        case EMPLOYEE:
-                            importEmployee(values, response);
-                            System.out.println("Employee.csv");
-                            break;
-                        case ELECTRONICS:
-                            importElectronics(values, response);
-                            System.out.println("Electronics.csv");
-                            break;
-                        case PURCHASE:
-                            importPurchase(values, response);
-                            System.out.println("Purchase.csv");
-                            break;
-                        case ELECTRO_TYPE:
-                            importElectroType(values, response);
-                            System.out.println("Electro_type.csv");
-                            break;
-                        case PURCHASE_TYPE:
-                            importPurchaseType(values, response);
-                            System.out.println("Puchasetype.csv");
-                            break;
-                        case POSITION_TYPE:
-                            importPositionType(values, response);
-                            System.out.println("PositionType.csv");
-                            break;
-                        case ELECTRO_EMPLOYEE:
-                            importElectroEmployee(values, response);
-                            System.out.println("ElectroEmployee.csv");
-                            break;
-                        case UNKNOWN:
-                            System.out.println("Unknown file");
-                            break;
-                    }
+        CSVReader csvReader = csvReaderBuilder.build();
+
+        CsvImporter.Entity entity = CsvImporter.Entity.UNKNOWN;
+        while ((values = csvReader.readNext()) != null) {
+            if (!checkHeader) {
+                entity = CsvImporter.checkDataHeaders(values);
+                checkHeader = true;
+            } else {
+                // check headers
+                switch (entity) {
+                    case EMPLOYEE:
+                        importEmployee(values, response);
+                        break;
+                    case ELECTRONICS:
+                        importElectronics(values, response);
+                        break;
+                    case PURCHASE:
+                        importPurchase(values, response);
+                        break;
+                    case UNKNOWN:
+                        System.out.println("Unknown file");
+                        break;
                 }
             }
-        } catch (Exception e) {
-            System.out.println("Exception" + e + " was caught");
-            e.printStackTrace();
         }
+
     }
+
 }
 

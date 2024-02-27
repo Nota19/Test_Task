@@ -19,6 +19,6 @@ public abstract class ElectroEmployeeActionableDynamicQuery
 
         setClassLoader(ru.hmel.service.ClpSerializer.class.getClassLoader());
 
-        setPrimaryKeyPropertyName("electro_employee_id");
+        setPrimaryKeyPropertyName("primaryKey.electro_employee_id");
     }
 }

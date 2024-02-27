@@ -70,11 +70,14 @@
 	</entity>
 
 	<entity name="ElectroEmployee" local-service="true" remote-service="true" >
-		<column name="electro_employee_id" type="long" primary="true" />
-		<column name="etype" type="long" />
+		<column name="electro_employee_id" type="long"  primary="true" />
+		<column name="etype" type="long"  primary="true" />
 
 		<finder name="electro_type_id" return-type="Collection">
 			<finder-column name="etype" />
+		</finder>
+		<finder name="employee_id" return-type="Collection">
+			<finder-column name="electro_employee_id" />
 		</finder>
 	</entity>
 </service-builder>

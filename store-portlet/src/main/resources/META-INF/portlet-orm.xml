@@ -8,9 +8,10 @@
 		</persistence-unit-defaults>
 	</persistence-unit-metadata>
 	<mapped-superclass class="ru.hmel.model.impl.ElectroEmployeeModelImpl">
+		<id-class class="ru.hmel.service.persistence.ElectroEmployeePK" />
 		<attributes>
 			<id name="electro_employee_id" />
-			<basic name="etype" />
+			<id name="etype" />
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />

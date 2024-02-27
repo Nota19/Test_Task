@@ -1,11 +1,13 @@
 package ru.hmel.util;
 
+import javax.sound.midi.Soundbank;
+import java.util.Arrays;
 import java.util.Objects;
 
 public class CsvImporter {
     static final String[] EmployeeHeader = {"id", "lastname", "firstname", "patronymic", "birthdate", "position", "gender"};
     static final String[] ElectronicsHeader = {"id", "name", "etype", "price", "count", "inStock", "archive", "description"};
-    static final String[] PurchaseHeader = {"id", "electroid", "employeeId", "purchaseDate", "type"};
+    static final String[] PurchaseHeader = {"id", "electroId", "employeeId", "purchaseDate", "type"};
     static final String[] ElectroTypeHeader = {"id", "name"};
     static final String[] PurchaseTypeHeader = {"id", "name"};
     static final String[] PositionTypeHeader = {"id", "name"};
@@ -24,29 +26,19 @@ public class CsvImporter {
 
 
     public static Entity checkDataHeaders(String[] header) {
-        int EmployeeValid, ElectronicsValid, PurchaseValid, ElectroTypeValid, PurchaseTypeValid, PositionTypeValid, ElectroEmployeeValid;
-        EmployeeValid = ElectronicsValid = PurchaseValid = ElectroTypeValid = PurchaseTypeValid = PositionTypeValid = ElectroEmployeeValid = 0;
-        for (int i = 0; i < header.length; i++) {
-            if (Objects.equals(header[i], EmployeeHeader[i])) {
+        int EmployeeValid, ElectronicsValid, PurchaseValid;
+        EmployeeValid = ElectronicsValid = PurchaseValid = 0;
+
+        for (int i = 0; i < header.length-1; i++) {
+            System.out.printf("%d: %s\n", i, header[i]);
+            if (EmployeeHeader.length > i && header[i].equals(EmployeeHeader[i])) {
                 EmployeeValid++;
             }
-            if (Objects.equals(header[i], ElectronicsHeader[i])) {
+            if (ElectronicsHeader.length > i && header[i].equals(ElectronicsHeader[i])) {
                 ElectronicsValid++;
             }
-            if (Objects.equals(header[i], PurchaseHeader[i])) {
+            if (PurchaseHeader.length > i &&  header[i].equals(PurchaseHeader[i])) {
                 PurchaseValid++;
-            }
-            if (Objects.equals(header[i], ElectroTypeHeader[i])) {
-                ElectroTypeValid++;
-            }
-            if (Objects.equals(header[i], PurchaseTypeHeader[i])) {
-                PurchaseTypeValid++;
-            }
-            if (Objects.equals(header[i], PositionTypeHeader[i])) {
-                PositionTypeValid++;
-            }
-            if (Objects.equals(header[i], ElectroEmployeeHeader[i])) {
-                ElectroEmployeeValid++;
             }
         }
         if (EmployeeValid == EmployeeHeader.length) {
@@ -57,18 +49,6 @@ public class CsvImporter {
         }
         if (PurchaseValid == PurchaseHeader.length) {
             return Entity.PURCHASE;
-        }
-        if (ElectroTypeValid == ElectroTypeHeader.length) {
-            return Entity.ELECTRO_TYPE;
-        }
-        if (PurchaseTypeValid == PurchaseTypeHeader.length) {
-            return Entity.PURCHASE_TYPE;
-        }
-        if (PositionTypeValid == PositionTypeHeader.length) {
-            return Entity.POSITION_TYPE;
-        }
-        if (ElectroEmployeeValid == ElectroEmployeeHeader.length) {
-            return Entity.ELECTRO_EMPLOYEE;
         }
         return Entity.UNKNOWN;
     }

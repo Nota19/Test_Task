@@ -56,11 +56,15 @@ public class ElectroEmployeeLocalServiceClp
 
         _methodName1 = "createElectroEmployee";
 
-        _methodParameterTypes1 = new String[] { "long" };
+        _methodParameterTypes1 = new String[] {
+                "ru.hmel.service.persistence.ElectroEmployeePK"
+            };
 
         _methodName2 = "deleteElectroEmployee";
 
-        _methodParameterTypes2 = new String[] { "long" };
+        _methodParameterTypes2 = new String[] {
+                "ru.hmel.service.persistence.ElectroEmployeePK"
+            };
 
         _methodName3 = "deleteElectroEmployee";
 
@@ -104,11 +108,15 @@ public class ElectroEmployeeLocalServiceClp
 
         _methodName10 = "fetchElectroEmployee";
 
-        _methodParameterTypes10 = new String[] { "long" };
+        _methodParameterTypes10 = new String[] {
+                "ru.hmel.service.persistence.ElectroEmployeePK"
+            };
 
         _methodName11 = "getElectroEmployee";
 
-        _methodParameterTypes11 = new String[] { "long" };
+        _methodParameterTypes11 = new String[] {
+                "ru.hmel.service.persistence.ElectroEmployeePK"
+            };
 
         _methodName12 = "getPersistedModel";
 
@@ -165,12 +173,14 @@ public class ElectroEmployeeLocalServiceClp
 
     @Override
     public ru.hmel.model.ElectroEmployee createElectroEmployee(
-        long electro_employee_id) {
+        ru.hmel.service.persistence.ElectroEmployeePK electroEmployeePK) {
         Object returnObj = null;
 
         try {
             returnObj = _invokableLocalService.invokeMethod(_methodName1,
-                    _methodParameterTypes1, new Object[] { electro_employee_id });
+                    _methodParameterTypes1,
+                    new Object[] { ClpSerializer.translateInput(
+                            electroEmployeePK) });
         } catch (Throwable t) {
             t = ClpSerializer.translateThrowable(t);
 
@@ -187,14 +197,16 @@ public class ElectroEmployeeLocalServiceClp
 
     @Override
     public ru.hmel.model.ElectroEmployee deleteElectroEmployee(
-        long electro_employee_id)
+        ru.hmel.service.persistence.ElectroEmployeePK electroEmployeePK)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException {
         Object returnObj = null;
 
         try {
             returnObj = _invokableLocalService.invokeMethod(_methodName2,
-                    _methodParameterTypes2, new Object[] { electro_employee_id });
+                    _methodParameterTypes2,
+                    new Object[] { ClpSerializer.translateInput(
+                            electroEmployeePK) });
         } catch (Throwable t) {
             t = ClpSerializer.translateThrowable(t);
 
@@ -432,14 +444,15 @@ public class ElectroEmployeeLocalServiceClp
 
     @Override
     public ru.hmel.model.ElectroEmployee fetchElectroEmployee(
-        long electro_employee_id)
+        ru.hmel.service.persistence.ElectroEmployeePK electroEmployeePK)
         throws com.liferay.portal.kernel.exception.SystemException {
         Object returnObj = null;
 
         try {
             returnObj = _invokableLocalService.invokeMethod(_methodName10,
                     _methodParameterTypes10,
-                    new Object[] { electro_employee_id });
+                    new Object[] { ClpSerializer.translateInput(
+                            electroEmployeePK) });
         } catch (Throwable t) {
             t = ClpSerializer.translateThrowable(t);
 
@@ -460,7 +473,7 @@ public class ElectroEmployeeLocalServiceClp
 
     @Override
     public ru.hmel.model.ElectroEmployee getElectroEmployee(
-        long electro_employee_id)
+        ru.hmel.service.persistence.ElectroEmployeePK electroEmployeePK)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException {
         Object returnObj = null;
@@ -468,7 +481,8 @@ public class ElectroEmployeeLocalServiceClp
         try {
             returnObj = _invokableLocalService.invokeMethod(_methodName11,
                     _methodParameterTypes11,
-                    new Object[] { electro_employee_id });
+                    new Object[] { ClpSerializer.translateInput(
+                            electroEmployeePK) });
         } catch (Throwable t) {
             t = ClpSerializer.translateThrowable(t);
 
